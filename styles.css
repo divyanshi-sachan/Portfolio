@@ -1,0 +1,326 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #8B4513;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+/* Hero Section */
+.hero-section {
+    position: relative;
+    background-image: url('https://www.tabnine.com/blog/wp-content/uploads/2021/10/visual-studio-2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Changed to flex-start */
+    color: #fff;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Updated styling for the text container */
+.hero-content {
+    padding: 40px; /* Increased padding for a larger text container */
+}
+
+/* Added styling for the larger passport-size image */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 250px; /* Increased width for a larger image */
+    height: 250px; /* Increased height for a larger image */
+    background-image: url('https://www.springboard.com/blog/wp-content/uploads/2023/09/is-coding-a-good-career-in-the-face-of-ai-and-tech-layoff.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* Added border-radius for a circular shape */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Increased box-shadow for a more pronounced effect */
+}
+
+/* Updated styling for larger text */
+.hero-content h2 {
+    font-size: 3em; /* Increased font size for the heading */
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.hero-content h1 {
+    font-size: 4em; /* Increased font size for the main title */
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    background-image: url('https://www.springboard.com/blog/wp-content/uploads/2023/09/is-coding-a-good-career-in-the-face-of-ai-and-tech-layoff.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Black Box Section */
+.black-box-section {
+    background-color: #000;
+    color: white; /* Change the text color to white */
+    text-align: center;
+    padding: 20px;
+    border: 2px solid white;
+}
+
+.black-box-section h3 {
+    font-size: 80px;
+}
+
+.black-box-section span {
+    font-size: 96px;
+    color: white; /* Keep the span text color as white */
+}
+
+
+.card-container-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    margin: 40px 20px; 
+    animation: moveContainer 2s ease-in-out infinite alternate;
+}
+
+
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff; /* White background for cards */
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.card {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 15px; /* Slightly rounded corners */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover .card-content {
+    transform: translateY(0);
+}
+
+
+
+.bottom-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+
+
+
+
+
+.about-me-section {
+    flex: 1;
+    padding: 200px;
+    text-align: center;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/014/799/180/non_2x/aesthetic-background-boho-background-background-with-rainbow-moon-leaves-dots-and-geometric-shapes-in-boho-and-aesthetic-style-illustration-vector.jpg");
+}
+
+
+
+.about-me-section h4 {
+    font-size: 2em; 
+    margin-bottom: 10px;
+}
+
+.about-me-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+
+.contact-me-section {
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/027/231/618/original/illustration-graphic-of-aesthetic-background-template-with-subtle-pastel-colors-and-nature-motifs-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px; 
+}
+
+.contact-form-container {
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+}
+
+.contact-form {
+    max-width: 100%; 
+    margin: 0 auto; 
+}
+
+
+
+.contact-header {
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover {
+    border-color: #3498db;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: #000;
+}
+
+
+@media (max-width: 786px) {
+    
+
+    /* Hero Section */
+    .hero-section {
+        height: 70vh; 
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em; 
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; 
+    }
+
+    /* Black Box Section */
+    .black-box-section h3 {
+        font-size: 24px; 
+    }
+
+    /* Card Container Section */
+    .card-container-section {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    }
+
+    /* Bottom Section */
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    /* About Me Section */
+    .about-me-section {
+        padding: 10px;
+    }
+
+
+    .contact-me-section {
+        background-size: cover;
+        background-position: center;
+    }
+
+}
+
+
+
+
+
