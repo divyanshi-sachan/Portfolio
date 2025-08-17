@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import HeroText from "../components/HeroText";
+import SocialSidebar from "../components/SocialSidebar";
 
 const HeroVideo = () => {
   const videoRef = useRef(null);
@@ -19,6 +20,9 @@ const HeroVideo = () => {
 
   return (
     <section className="relative flex items-center justify-center min-h-screen overflow-hidden">
+      {/* Social Sidebar */}
+      <SocialSidebar />
+      
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <video
