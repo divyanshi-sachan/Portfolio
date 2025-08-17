@@ -13,8 +13,8 @@ const About = () => {
         {/* Grid 1 */}
         <div className="flex items-end grid-default-color grid-1">
           <img
-            src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
+            src="assets/me.png"
+            className="absolute scale-[1.05] -right-[1rem] -top-[0.25rem] md:scale-[1.1] md:right-[0.5rem] md:top-[0.25rem] lg:scale-[1.05] lg:right-[0.25rem] lg:top-[0.25rem]"
           />
           <div className="z-10">
             <p className="headtext">Hi, I'm Divyanshi</p>
