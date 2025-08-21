@@ -46,6 +46,15 @@
       transform: translateY(calc(-100% - var(--gap)));
     }
   }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 body {
   background: #030412;
@@ -94,6 +103,20 @@ body {
 /* Button Components */
 .btn {
   @apply relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary w-[12rem] cursor-pointer overflow-hidden;
+}
+
+/* Layered Scroll Effect */
+.scrolling-hero {
+  overflow: hidden;
+}
+
+.mt-screen {
+  margin-top: 100vh;
+}
+
+/* Ensure proper spacing */
+.relative.z-10.mt-screen {
+  margin-top: 100vh;
 }
 
 /* About Section */

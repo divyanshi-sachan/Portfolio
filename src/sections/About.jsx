@@ -1,23 +1,23 @@
 import { useRef } from "react";
 import Card from "../components/Card";
-import { Globe } from "../components/globe";
+// import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 
 const About = () => {
   const grid2Container = useRef();
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="c-space pt-20" id="about">
       <h2 className="text-heading">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
         <div className="flex items-end grid-default-color grid-1">
           <img
-            src="assets/me.png"
-            className="absolute scale-[1.05] -right-[1rem] -top-[0.25rem] md:scale-[1.1] md:right-[0.5rem] md:top-[0.25rem] lg:scale-[1.05] lg:right-[0.25rem] lg:top-[0.25rem]"
+            src="assets/aboutimg.jpg"
+            className="absolute scale-[1.05] -right-[1rem] -top-[0.25rem] md:scale-[1.1] md:right-[0.5rem] md:top-[0.25rem] lg:scale-[1.6] lg:right-[0.25rem] lg:top-[0.25rem]"
           />
           <div className="z-10">
-            <p className="headtext">Hi, I'm Divyanshi</p>
+            <p className="headtext">Hi, Im Divyanshi</p>
             <p className="subtext">
               Over the last 2 years, I developed my frontend and backend dev
               skills to deliver dynamic and software and web applications.
@@ -79,8 +79,8 @@ const About = () => {
         {/* Grid 3 */}
         <div className="flex items-end grid-default-color grid-3">
           <img
-            src="assets/image.png"
-            className="absolute scale-[1.2] -right-[2rem] -top-[1rem] md:scale-[1.5] md:right-[1rem] md:top-[0.5rem] lg:scale-[1.3] lg:right-[0.5rem] lg:top-[0.25rem]"
+            src="assets/about.jpg"
+            className="absolute w-full h-full object-cover object-bottom scale-[1.2] -right-[2rem] -top-[1rem] md:scale-[1.5] md:right-[1rem] md:top-[0.5rem] lg:scale-[1] lg:right-[0.5rem] lg:top-[0.25rem]"
           />
           <div className="z-10">
             <p className="headtext">About Me</p>

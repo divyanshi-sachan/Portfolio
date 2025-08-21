@@ -1,12 +1,12 @@
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { motion } from "motion/react";
 import HeroText from "../components/HeroText";
 import CodeEditor from "../components/CodeEditor";
 import FloatingTechIcons from "../components/FloatingTechIcons";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
 const Hero = () => {
-  const isMobile = useMediaQuery({ maxWidth: 853 });
+  // const isMobile = useMediaQuery({ maxWidth: 853 });
   const heroRef = useRef(null);
 
   return (
