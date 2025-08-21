@@ -7,7 +7,7 @@ export default function HeroSection() {
     <div className="h-screen bg-[#B8B5B0] relative overflow-hidden">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-10 py-8">
-        <div className="text-black text-sm font-medium">© Code by Divyandhi</div>
+        <div className="text-black text-sm font-medium">© Code by Divyanshi</div>
         <nav className="flex gap-8">
           <a href="#work" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
             Work
@@ -23,16 +23,16 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <img
-          src="/assets/herosection.jpg"
+          src="/assets/hero.jpg"
           alt="Divyanshi - Freelance Designer & Developer"
-          className="w-full h-full object-cover object-bottom scale-110"
+          className="w-full h-full object-cover object-[center_200%] scale-110"
         />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden z-10">
         <ParallaxText
           baseVelocity={10}
-          className="text-white text-[12rem] md:text-[16rem] lg:text-[20rem] font-light leading-none tracking-tight select-none whitespace-nowrap"
+          className="text-white text-[12rem] md:text-[14rem] lg:text-[16rem] font-light leading-none tracking-tight select-none whitespace-nowrap"
           wrapperClassName=""
         >
           <span className="px-4">Divyanshi-Sachan</span>
