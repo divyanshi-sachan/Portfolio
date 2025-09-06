@@ -6,7 +6,7 @@ import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Experiences from "./sections/Experiences";
 import Footer from './sections/Footer';
-
+import AboutSection from "./AboutSection";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +72,8 @@ const App = () => {
       <div 
         ref={aboutRef} 
         className="absolute top-0 left-0 w-full z-20 bg-[#030412] min-h-screen"
-      >
+      > 
+       <AboutSection />
         <About />
         <Projects />
         <Experiences />
