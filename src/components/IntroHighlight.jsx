@@ -32,7 +32,7 @@ const IntroHighlight = () => {
   return (
     <motion.div
       ref={containerRef}
-      className="relative min-h-screen bg-white overflow-hidden"
+      className="section-padding bg-[#B8B5B0] text-black overflow-hidden"
       style={{
         rotateX,
         rotateY,
@@ -45,7 +45,7 @@ const IntroHighlight = () => {
       }}
     >
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-between px-8 md:px-16 lg:px-24 py-16">
+      <div className="container-width">
         
         {/* Top Section - Main Pitch */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -57,7 +57,7 @@ const IntroHighlight = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+            <h1 className="heading-1">
               Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge.
             </h1>
           </motion.div>
@@ -69,12 +69,12 @@ const IntroHighlight = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <p className="text-lg md:text-xl text-black leading-relaxed max-w-md">
+            <p className="body-large text-gray-700 leading-relaxed max-w-md">
               The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
             </p>
             
             <motion.button
-              className="w-32 h-32 bg-black rounded-full flex items-center justify-center text-white font-semibold text-lg hover:scale-105 transition-transform duration-300"
+              className="w-32 h-32 bg-black rounded-full flex items-center justify-center text-white font-medium text-lg hover:scale-105 transition-transform duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -100,14 +100,14 @@ const IntroHighlight = () => {
 
         {/* Bottom Section - Social Proof */}
         <motion.div
-          className="space-y-8"
+          className="space-y-8 mt-20"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
           {/* Tagline */}
           <div className="text-center">
-            <p className="text-lg text-black">
+            <p className="body-large text-gray-700">
               Trusted by <em className="font-serif italic">people</em> worldwide
             </p>
           </div>
@@ -116,38 +116,38 @@ const IntroHighlight = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <motion.div
-                className="text-4xl md:text-5xl font-bold text-black mb-2"
+                className="heading-2 mb-2"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 5,555+
               </motion.div>
-              <p className="text-black">LinkedIn Connections</p>
+              <p className="body-text text-gray-600">LinkedIn Connections</p>
             </div>
             
             <div className="text-center">
               <motion.div
-                className="text-4xl md:text-5xl font-bold text-black mb-2"
+                className="heading-2 mb-2"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.0 }}
               >
                 210+
               </motion.div>
-              <p className="text-black">GitHub Stars</p>
+              <p className="body-text text-gray-600">GitHub Stars</p>
             </div>
             
             <div className="text-center">
               <motion.div
-                className="text-4xl md:text-5xl font-bold text-black mb-2"
+                className="heading-2 mb-2"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
                 2
               </motion.div>
-              <p className="text-black">Years of Experience</p>
+              <p className="body-text text-gray-600">Years of Experience</p>
             </div>
           </div>
         </motion.div>
@@ -155,10 +155,10 @@ const IntroHighlight = () => {
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-black rounded-full opacity-20"
+            className="absolute w-1 h-1 bg-black rounded-full opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

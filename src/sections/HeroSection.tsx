@@ -9,8 +9,8 @@ export default function HeroSection() {
       <header className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-10 py-8">
         <div className="text-black text-sm font-medium">© Code by Divyanshi</div>
         <nav className="flex gap-8">
-          <a href="#work" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
-            Work
+          <a href="#projects" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
+            Projects
           </a>
           <a href="#about" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
             About
@@ -58,6 +58,16 @@ export default function HeroSection() {
         <div className="text-white text-right">
           <div className="text-4xl font-light leading-tight">Freelance</div>
           <div className="text-4xl font-light leading-tight">Designer & Developer</div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-white text-sm font-light">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+          </div>
         </div>
       </div>
 

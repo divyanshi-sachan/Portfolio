@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { myProjects } from "../constants";
 import ProjectShowcase from "../components/ProjectShowcase";
 
@@ -87,39 +88,77 @@ const Projects = () => {
     // }, [index]);
 
     return (
-      <div
+      <motion.div
         className="group cursor-pointer mb-20"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: index * 0.2,
+          ease: "easeOut"
+        }}
+        viewport={{ once: true, margin: "-100px" }}
         onClick={() => handleProjectClick(project)}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Text content */}
-          <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+          <motion.div 
+            className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
+            viewport={{ once: true }}
+          >
             <div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
+              <motion.h2 
+                className="heading-2 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
+                viewport={{ once: true }}
+              >
                 {project.title.toUpperCase()}
-              </h2>
-              <p className="text-xl text-gray-300 uppercase tracking-wide">
+              </motion.h2>
+              <motion.p 
+                className="body-large text-gray-600 uppercase tracking-wide"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                viewport={{ once: true }}
+              >
                 {project.tags.slice(0, 3).map(tag => tag.name).join(', ').toUpperCase()}
                 {project.tags.length > 3 && `, +${project.tags.length - 3} MORE`}
-              </p>
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right side - Image */}
-          <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-            <div className="project-image-container rounded-lg">
-              <img
+          <motion.div 
+            className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="project-image-container rounded-lg overflow-hidden">
+              <motion.img
                 src={project.image}
                 alt={project.title}
-                className="project-image transition-transform duration-700 group-hover:scale-105"
+                className="project-image transition-transform duration-700 group-hover:scale-110"
                 onLoad={() => console.log('Project image loaded:', project.image)}
                 onError={() => console.log('Project image failed:', project.image)}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-500" />
+              <motion.div 
+                className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-500"
+                whileHover={{ opacity: 0.2 }}
+              />
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     );
   };
 
@@ -127,28 +166,58 @@ const Projects = () => {
     <>
       <section
         ref={sectionRef}
-        className="min-h-screen bg-black text-white py-20 px-4 md:px-8 lg:px-16"
+        className="section-padding bg-[#B8B5B0] text-black"
         id="projects"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="container-width">
           {/* Header */}
-          <div className="mb-20">
-            <div className="flex items-center mb-8">
-              <div className="w-8 h-8 mr-4">
+          <motion.div
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div 
+              className="flex items-center mb-8"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="w-8 h-8 mr-4"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
+                viewport={{ once: true }}
+              >
                 <svg
-                  className="w-full h-full text-white"
+                  className="w-full h-full text-black"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              </motion.div>
+              <motion.h1 
+                className="heading-2"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
                 OUR BIG PROJECTS
-              </h1>
-            </div>
-            <div className="w-full h-px bg-gray-700" />
-          </div>
+              </motion.h1>
+            </motion.div>
+            <motion.div 
+              className="w-full h-px bg-black/20"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
 
           {/* Projects List */}
           <div ref={projectsRef} className="space-y-0">

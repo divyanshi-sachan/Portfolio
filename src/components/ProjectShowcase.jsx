@@ -27,70 +27,60 @@ const ProjectShowcase = ({ project, onClose }) => {
     <AnimatePresence>
       <motion.div
         ref={containerRef}
-        className="fixed inset-0 z-50 bg-white"
+        className="fixed inset-0 z-50 bg-[#B8B5B0] overflow-y-auto"
         onClick={handleBackdropClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-          {/* Background Image - Full Hero Section */}
-          <div className="absolute inset-0">
-            <img
-              src="/assets/hero.jpg"
-              alt="Background"
-              className="w-full h-full object-cover object-[center_200%] scale-110"
-            />
-            {/* Dark overlay for better text visibility */}
-            <div className="absolute inset-0 bg-black bg-opacity-40" />
-          </div>
-
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all duration-300"
+        {/* Close Button */}
+        <motion.button
+          onClick={onClose}
+          className="fixed top-6 right-6 z-20 p-3 bg-black/10 backdrop-blur-sm rounded-full hover:bg-black/20 transition-all duration-300 border border-black/20"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <svg
+            className="w-6 h-6 text-black"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </motion.button>
 
-          {/* Main Content */}
-          <div className="relative z-10 h-full flex items-start justify-center px-4 md:px-8 lg:px-16 pt-8">
-            <div className="max-w-7xl mx-auto w-full relative">
-              {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start relative">
+        {/* Main Content */}
+        <div className="min-h-screen py-8 px-4 md:px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto">
             
-            {/* Left Side - Text Content */}
+            {/* Header Section */}
             <motion.div
-              className="space-y-6 relative"
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Back Arrow */}
-              <motion.div
-                className="mb-6 relative"
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+              {/* Back Button */}
+              <motion.button
+                onClick={onClose}
+                className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors duration-300 mb-8"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <svg
-                  className="w-8 h-8 text-white cursor-pointer hover:text-gray-300 transition-colors duration-300"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
-                  onClick={onClose}
                 >
                   <path
                     strokeLinecap="round"
@@ -99,246 +89,183 @@ const ProjectShowcase = ({ project, onClose }) => {
                     d="M15 19l-7-7 7-7"
                   />
                 </svg>
-              </motion.div>
+                <span className="text-sm font-medium">Back to Projects</span>
+              </motion.button>
 
               {/* Project Title */}
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none"
-                style={{ 
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: 900,
-                  letterSpacing: "-0.02em",
-                  lineHeight: "0.9"
-                }}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                className="heading-1 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
-                {project.title.toUpperCase()}
+                {project.title}
               </motion.h1>
 
               {/* Project Description */}
-              <motion.div
-                className="space-y-3"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+              <motion.p
+                className="body-large text-gray-700 max-w-3xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <p className="text-base md:text-lg text-white leading-relaxed max-w-lg">
-                  {project.description}
-                </p>
-                
-                {project.subDescription && (
-                  <div className="space-y-3">
-                    {project.subDescription.slice(0, 2).map((item, index) => (
-                      <p key={index} className="text-sm text-gray-300 leading-relaxed">
-                        {item}
-                      </p>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-
-              {/* Separator Line */}
-              <motion.div
-                className="w-full h-px bg-gray-600"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              />
-
-              {/* Role & Awards */}
-              <motion.div
-                className="space-y-2"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
-                <p className="text-sm text-gray-400 uppercase tracking-wider">
-                  ROLE: UI/UX, FRONTEND AND BACKEND DEVELOPER
-                </p>
-                <p className="text-sm text-gray-400 uppercase tracking-wider">
-                  01 AWARDS
-                </p>
-              </motion.div>
+                {project.description}
+              </motion.p>
             </motion.div>
 
-            {/* Right Side - Visual Content */}
+            {/* Project Image */}
             <motion.div
-              className="flex justify-center lg:justify-end relative"
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <div className="relative w-full max-w-md lg:max-w-lg">
-                
-                {/* Main Blue Branding Card */}
+              <div className="relative rounded-2xl overflow-hidden border border-black/20 shadow-lg">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-black/10 hover:bg-black/5 transition-all duration-300" />
+              </div>
+            </motion.div>
+
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              
+              {/* Main Content */}
+              <div className="lg:col-span-2">
                 <motion.div
-                  className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 shadow-2xl mb-4"
-                  initial={{ scale: 0.8, rotateY: -15 }}
-                  animate={{ scale: 1, rotateY: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
+                  className="space-y-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  {/* Brand Logo */}
-                  <div className="text-center mb-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                      {project.title.substring(0, 4).toUpperCase()}
-                    </h2>
-                    <p className="text-blue-200 text-sm">All-in-one solution</p>
-                  </div>
-
-                  {/* Platform Buttons */}
-                  <div className="grid grid-cols-2 gap-3">
-                    {["User App", "Merchant App", "Agent App", "Web Platform", "Admin Panel"].map((platform, index) => (
-                      <motion.button
-                        key={platform}
-                        className="px-4 py-3 bg-white bg-opacity-10 rounded-lg text-white text-sm font-medium hover:bg-opacity-20 transition-all duration-300"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {platform}
-                      </motion.button>
-                    ))}
-                  </div>
-
-                  {/* Floating Elements */}
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-2 h-2 bg-white rounded-full opacity-60"
-                      style={{
-                        left: `${20 + i * 12}%`,
-                        top: `${30 + i * 8}%`,
-                      }}
-                      animate={{
-                        y: [0, -10, 0],
-                        opacity: [0.6, 1, 0.6],
-                      }}
-                      transition={{
-                        duration: 2 + i * 0.3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2,
-                      }}
-                    />
-                  ))}
-                </motion.div>
-
-                {/* Separate Mobile Mockup */}
-                <motion.div
-                  className="relative w-32 h-64 bg-white rounded-2xl shadow-xl border-2 border-gray-200 mx-auto"
-                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
-                >
-                  <div className="p-3 h-full flex flex-col">
-                    {/* Status Bar */}
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-xs font-semibold text-black">9:41</span>
-                      <div className="flex gap-1">
-                        <div className="w-3 h-1.5 bg-black rounded-sm"></div>
-                        <div className="w-3 h-1.5 bg-black rounded-sm"></div>
-                      </div>
-                    </div>
-
-                    {/* Header */}
-                    <div className="text-center mb-3">
-                      <div className="text-xs font-semibold text-black">Hello Ronald</div>
-                      <div className="text-xs text-gray-600">Welcome Back!</div>
-                    </div>
-
-                    {/* Balance Card */}
-                    <div className="bg-blue-600 rounded-lg p-2 mb-3">
-                      <div className="text-white text-xs mb-1">Your wallet Balance</div>
-                      <div className="text-white font-bold text-sm">$23,685.00</div>
-                    </div>
-
-                    {/* Action Icons */}
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      {["Add Money", "Send", "Payment", "Card"].map((action, index) => (
-                        <div key={action} className="text-center">
-                          <div className="w-8 h-8 bg-gray-200 rounded-full mx-auto mb-1"></div>
-                          <div className="text-xs text-gray-600">{action}</div>
-                        </div>
+                  {/* Project Details */}
+                  <div>
+                    <h2 className="heading-3 mb-6">Project Overview</h2>
+                    <div className="space-y-4">
+                      {project.subDescription?.map((detail, index) => (
+                        <motion.p
+                          key={index}
+                          className="body-text text-gray-700 leading-relaxed"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                        >
+                          {detail}
+                        </motion.p>
                       ))}
                     </div>
+                  </div>
 
-                    {/* Other Services */}
-                    <div className="mb-3">
-                      <div className="text-xs font-semibold text-black mb-2">Other Services</div>
-                      <div className="grid grid-cols-3 gap-1">
-                        {["Recharge", "Bill Pay", "Bank Transfer", "Savings", "Donation", "Electricity"].map((service) => (
-                          <div key={service} className="text-center">
-                            <div className="w-6 h-6 bg-gray-200 rounded-full mx-auto mb-1"></div>
-                            <div className="text-xs text-gray-600">{service}</div>
-                          </div>
-                        ))}
+                  {/* Technologies Used */}
+                  <div>
+                    <h2 className="heading-3 mb-6">Technologies Used</h2>
+                    <motion.div
+                      className="flex flex-wrap gap-3"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {project.tags?.map((tag, index) => (
+                        <motion.span
+                          key={tag.id}
+                          className="px-4 py-2 bg-black/10 rounded-full text-sm font-medium text-black border border-black/20 hover:bg-black/20 transition-all duration-300"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            duration: 0.4, 
+                            delay: 0.9 + index * 0.1,
+                            type: "spring",
+                            stiffness: 200
+                          }}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          {tag.name}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Sidebar */}
+              <div className="lg:col-span-1">
+                <motion.div
+                  className="space-y-8"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
+                  {/* Project Info Card */}
+                  <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-black/20">
+                    <h3 className="heading-3 mb-4">Project Details</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <span className="text-sm font-medium text-gray-600 uppercase tracking-wide">Category</span>
+                        <p className="body-text text-black mt-1">Full Stack Development</p>
                       </div>
-                    </div>
-
-                    {/* Payment Offers */}
-                    <div>
-                      <div className="text-xs font-semibold text-black mb-2">Payment Offers</div>
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-xs">
-                          <span className="text-gray-600">QuickBank</span>
-                          <span className="text-green-600 font-semibold">10% off</span>
-                        </div>
-                        <div className="flex justify-between text-xs">
-                          <span className="text-gray-600">Boltshift</span>
-                          <span className="text-green-600 font-semibold">10% off</span>
-                        </div>
+                      <div>
+                        <span className="text-sm font-medium text-gray-600 uppercase tracking-wide">Duration</span>
+                        <p className="body-text text-black mt-1">3-6 months</p>
+                      </div>
+                      <div>
+                        <span className="text-sm font-medium text-gray-600 uppercase tracking-wide">Status</span>
+                        <p className="body-text text-black mt-1">Completed</p>
                       </div>
                     </div>
                   </div>
-                </motion.div>
 
-                {/* Glow Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl -z-10"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </div>
-              </motion.div>
+                  {/* Action Buttons */}
+                  <div className="space-y-4">
+                    <motion.button
+                      className="w-full px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition-all duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      View Live Demo
+                    </motion.button>
+                    
+                    <motion.button
+                      className="w-full px-6 py-3 bg-white/50 border border-black/20 text-black font-medium rounded-full hover:bg-white/70 transition-all duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.9 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      View Source Code
+                    </motion.button>
+                  </div>
+
+                  {/* Related Projects */}
+                  <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-black/20">
+                    <h3 className="heading-3 mb-4">Related Projects</h3>
+                    <div className="space-y-3">
+                      {["AI PDF Reader", "Content Repurposer", "Mojito Landing Page"].map((relatedProject, index) => (
+                        <motion.div
+                          key={relatedProject}
+                          className="p-3 rounded-lg hover:bg-black/5 transition-all duration-300 cursor-pointer"
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 1.0 + index * 0.1 }}
+                          whileHover={{ x: 5 }}
+                        >
+                          <p className="text-sm font-medium text-black">{relatedProject}</p>
+                          <p className="text-xs text-gray-600">View Project</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
-
-            {/* Bottom Right CTA */}
-            <motion.div
-              className="absolute bottom-8 right-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            >
-              <div className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer">
-                <span className="text-sm uppercase tracking-wide">see case</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </div>
-            </motion.div>
           </div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

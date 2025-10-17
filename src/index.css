@@ -11,6 +11,16 @@ a, button, input, textarea, select, [role="button"] {
   cursor: pointer !important;
 }
 @theme {
+  /* Primary Color Palette - Based on HeroSection */
+  --color-primary-bg: #B8B5B0;
+  --color-secondary-bg: #030412;
+  --color-accent: #5c33cc;
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-text-white: #ffffff;
+  --color-text-light: #cccccc;
+  
+  /* Legacy colors for compatibility */
   --color-primary: #030412;
   --color-midnight: #06091f;
   --color-navy: #161a31;
@@ -67,9 +77,9 @@ a, button, input, textarea, select, [role="button"] {
   }
 }
 body {
-  background: #030412;
+  background: var(--color-primary-bg);
   font-family: "Funnel Display", sans-serif;
-  color: white;
+  color: var(--color-text-primary);
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -86,6 +96,31 @@ body {
   @apply min-h-screen mt-20 md:mt-30;
 }
 
+/* Typography System */
+.heading-1 {
+  @apply text-5xl md:text-6xl lg:text-7xl font-light tracking-tight;
+}
+
+.heading-2 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-tight;
+}
+
+.heading-3 {
+  @apply text-3xl md:text-4xl font-light tracking-tight;
+}
+
+.body-large {
+  @apply text-lg md:text-xl font-light leading-relaxed;
+}
+
+.body-text {
+  @apply text-base md:text-lg font-light leading-relaxed;
+}
+
+.body-small {
+  @apply text-sm md:text-base font-light leading-relaxed;
+}
+
 .text-heading {
   @apply font-bold text-3xl md:text-4xl;
 }
@@ -96,6 +131,19 @@ body {
 
 .subtext {
   @apply text-neutral-400 text-sm md:text-base text-pretty;
+}
+
+/* Spacing System */
+.section-padding {
+  @apply py-20 px-4 md:px-8 lg:px-16;
+}
+
+.container-width {
+  @apply max-w-7xl mx-auto;
+}
+
+.section-spacing {
+  @apply min-h-screen;
 }
 
 /* Navigation */

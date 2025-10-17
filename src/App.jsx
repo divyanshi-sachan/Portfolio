@@ -22,55 +22,17 @@ const App = () => {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
-    // Only initialize scroll effects after welcome screen is complete
-    if (!showWelcome) {
-      // Set initial position of About section
-      gsap.set(aboutRef.current, { y: "100vh" });
-
-      // Create the layered scroll effect
-      ScrollTrigger.create({
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        onUpdate: (self) => {
-          // Calculate progress based on scroll
-          const progress = self.progress;
-          
-          // Animate About section sliding up over Hero
-          gsap.to(aboutRef.current, {
-            y: `${100 - (progress * 100)}vh`,
-            ease: "none"
-          });
-
-          // Optional: Add parallax effect to hero content
-          if (heroRef.current) {
-            gsap.to(heroRef.current, {
-              y: progress * -30,
-              opacity: 1 - (progress * 0.3),
-              ease: "none"
-            });
-          }
-        },
-        onComplete: () => {
-          // When effect is complete, reset About section position
-          gsap.set(aboutRef.current, { y: 0 });
-        },
-        onReverseComplete: () => {
-          // When scrolling back up, reset About section to initial position
-          gsap.set(aboutRef.current, { y: "100vh" });
-        }
-      });
-    }
-
+    // Cleanup any existing ScrollTriggers
     return () => {
-      // Cleanup
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, [showWelcome]);
 
   const handleWelcomeComplete = () => {
-    setShowWelcome(false);
+    // Add a small delay to ensure smooth transition
+    setTimeout(() => {
+      setShowWelcome(false);
+    }, 100);
   };
 
   return (
@@ -78,45 +40,38 @@ const App = () => {
       {/* Animated Cursor - Only show when not on welcome screen */}
       {!showWelcome && <AnimatedCursor />}
       
-      {/* Welcome Screen */}
-      {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
+      {/* Hero Section */}
+      <div ref={heroRef} className="relative z-10">
+        <HeroSection />
+      </div>
       
-      {/* Main Portfolio Content */}
+      {/* Main Portfolio Content - Only show when welcome is complete */}
       {!showWelcome && (
         <>
-          {/* Moving Tech Stack Component
-          <MovingTechStack />
-          
-          {/* Intro Highlight Section */}
-          {/* <IntroHighlight /> */}
-          
-          {/* Focusing on the Best Section */}
-          {/* <FocusingOnBest /> */} 
-          
-          {/* Hero Section */}
-          <div ref={heroRef} className="relative z-10 h-screen">
-            <HeroSection />
-          </div>
-          
-          {/* About Section - Slides up over hero, then becomes part of normal flow */}
-          <div 
-            ref={aboutRef} 
-            className="absolute top-0 left-0 w-full z-20 bg-[#030412]"
-            style={{ height: '600vh' }}
-          > 
+          {/* About Section */}
+          <div ref={aboutRef}>
             <About />
+          </div>
           
           {/* Intro Highlight Section */}
           <IntroHighlight />
           
-          {/* Focusing on the Best Section */}
+          {/* Moving Tech Stack Section */}
           <MovingTechStack />
-            <Projects />
-            <Experiences />
-            <Contact />
-          </div>
+          
+          {/* Projects Section */}
+          <Projects />
+          
+          {/* Experiences Section */}
+          <Experiences />
+          
+          {/* Contact Section */}
+          <Contact />
         </>
       )}
+      
+      {/* Welcome Screen - Always on top */}
+      {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
     </div>
   );
 };

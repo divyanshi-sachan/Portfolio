@@ -40,12 +40,12 @@ export const myProjects = [
     id: 2,
     title: "AI PDF Reader",
     description:
-      "A secure authentication and authorization system using Auth0 for seamless user management.",
+      "An intelligent PDF reader application powered by AI for enhanced document processing and analysis.",
     subDescription: [
-      "Integrated Auth0 for authentication, supporting OAuth, JWT, and multi-factor authentication.",
-      "Implemented role-based access control (RBAC) for fine-grained user permissions.",
-      "Developed a React-based frontend with Tailwind CSS for a sleek user experience.",
-      "Connected to a secure SQLite database for user data storage.",
+      "Built an AI-powered PDF reader that can extract, analyze, and summarize document content automatically.",
+      "Implemented advanced OCR technology for text extraction from scanned documents and images.",
+      "Developed a React-based frontend with Tailwind CSS for an intuitive user experience.",
+      "Integrated machine learning models for document classification and content understanding.",
     ],
     href: "",
     logo: "",
@@ -53,7 +53,7 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: "Auth0",
+        name: "AI/ML",
         path: "/assets/logos/auth0.svg",
       },
       {
@@ -63,7 +63,7 @@ export const myProjects = [
       },
       {
         id: 3,
-        name: "SQLite",
+        name: "Python",
         path: "/assets/logos/sqlite.svg",
       },
       {
@@ -114,12 +114,12 @@ export const myProjects = [
     id: 4,
     title: "Content Repurposer",
     description:
-      "A lightweight C++ game engine designed for 2D and 3D game development.",
+      "An AI-powered content repurposing platform that transforms long-form content into multiple formats.",
     subDescription: [
-      "Built a powerful rendering engine using OpenGL and C++.",
-      "Developed a physics engine with collision detection and particle effects.",
-      "Implemented a scripting system for easy game customization.",
-      "Optimized performance with multi-threading and efficient memory management.",
+      "Built an intelligent content analysis system that extracts key insights from articles and videos.",
+      "Developed automated content generation for social media posts, blog summaries, and email newsletters.",
+      "Implemented natural language processing for content optimization and SEO enhancement.",
+      "Created a user-friendly dashboard for content creators to manage and schedule repurposed content.",
     ],
     href: "",
     logo: "",
@@ -127,22 +127,22 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: "C++",
+        name: "AI/ML",
         path: "/assets/logos/cplusplus.svg",
       },
       {
         id: 2,
-        name: "C#",
+        name: "Python",
         path: "/assets/logos/csharp.svg",
       },
       {
         id: 3,
-        name: "Git",
+        name: "React",
         path: "/assets/logos/git.svg",
       },
       {
         id: 4,
-        name: "Microsoft",
+        name: "Node.js",
         path: "/assets/logos/microsoft.svg",
       },
     ],
@@ -151,12 +151,12 @@ export const myProjects = [
     id: 5,
     title: "Mojito Landing Page",
     description:
-      "A fully customizable WordPress theme optimized for performance and SEO.",
+      "A modern, high-converting landing page for a premium cocktail brand with interactive animations.",
     subDescription: [
-      "Developed a responsive WordPress theme using HTML5, CSS3, and JavaScript.",
-      "Integrated Tailwind CSS for modern styling and UI enhancements.",
-      "Optimized SEO and page speed using Vite.js for fast builds.",
-      "Implemented custom widgets and plugin compatibility for extended functionality.",
+      "Designed and developed a stunning landing page with smooth scroll animations and micro-interactions.",
+      "Implemented a custom cocktail recipe builder with real-time ingredient calculations.",
+      "Created an immersive 3D product showcase using Three.js for enhanced user engagement.",
+      "Optimized for mobile-first design with advanced CSS animations and responsive layouts.",
     ],
     href: "",
     logo: "",
@@ -164,12 +164,12 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: "WordPress",
+        name: "React",
         path: "/assets/logos/wordpress.svg",
       },
       {
         id: 2,
-        name: "HTML5",
+        name: "Three.js",
         path: "/assets/logos/html5.svg",
       },
       {
@@ -179,7 +179,7 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: "Vite.js",
+        name: "Framer Motion",
         path: "/assets/logos/vitejs.svg",
       },
     ],
