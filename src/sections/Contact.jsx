@@ -1,130 +1,271 @@
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import Alert from "../components/Alert";
-import { Particles } from "../components/Particles";
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertType, setAlertType] = useState("success");
-  const [alertMessage, setAlertMessage] = useState("");
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const showAlertMessage = (type, message) => {
-    setAlertType(type);
-    setAlertMessage(message);
-    setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 5000);
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    try {
-      console.log("From submitted:", formData);
-      await emailjs.send(
-        "service_79b0nyj",
-        "template_17us8im",
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+const Contact = () => {
+  const sectionRef = useRef(null);
+  const leftTextRef = useRef(null);
+  const rightContentRef = useRef(null);
+  const tagsRef = useRef(null);
+  const ctaRef = useRef(null);
+  const socialRef = useRef(null);
+
+  const interests = [
+    "UX/UI DESIGN",
+    "FULLSTACK DEVELOPER", 
+    "MOBILE DEVELOPMENT",
+    "DIGITAL CONSULTANT",
+    "NEW BUSINESSES",
+    "CALISTHENICS",
+    "COOKING",
+    "STARTUPS",
+    "GAMING",
+    "AI SOLUTIONS"
+  ];
+
+  const socialLinks = [
+    { name: "LinkedIn", href: "#" },
+    { name: "Telegram", href: "#" },
+    { name: "X", href: "#" },
+    { name: "Instagram", href: "#" }
+  ];
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate left text
+      gsap.fromTo(
+        leftTextRef.current,
         {
-          from_name: formData.name,
-          to_name: "Ali",
-          from_email: formData.email,
-          to_email: "AliSanatiDev@gmail.com",
-          message: formData.message,
+          opacity: 0,
+          x: -100,
         },
-        "pn-Bw_mS1_QQdofuV"
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
       );
-      setIsLoading(false);
-      setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
-    }
+
+      // Animate right content
+      gsap.fromTo(
+        rightContentRef.current,
+        {
+          opacity: 0,
+          x: 100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate tags with stagger
+      gsap.fromTo(
+        tagsRef.current?.children || [],
+        {
+          opacity: 0,
+          y: 30,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          delay: 0.6,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate CTA
+      gsap.fromTo(
+        ctaRef.current,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate social links
+      gsap.fromTo(
+        socialRef.current?.children || [],
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          delay: 1.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleTagHover = (element, isHovering) => {
+    gsap.to(element, {
+      scale: isHovering ? 1.05 : 1,
+      backgroundColor: isHovering ? "rgba(255, 255, 255, 0.1)" : "transparent",
+      duration: 0.3,
+      ease: "power2.out",
+    });
   };
+
+  const handleCtaHover = (element, isHovering) => {
+    gsap.to(element, {
+      scale: isHovering ? 1.05 : 1,
+      backgroundColor: isHovering ? "#f3f4f6" : "#ffffff",
+      color: isHovering ? "#000000" : "#000000",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
-    <section className="relative flex items-center c-space section-spacing">
-      <Particles
-        className="absolute inset-0 -z-50"
-        quantity={100}
-        ease={80}
-        color={"#ffffff"}
-        refresh
-      />
-      {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
-          <h2 className="text-heading">Let's Talk</h2>
-          <p className="font-normal text-neutral-400">
-            Whether you're loking to build a new website, improve your existing
-            platform, or bring a unique project to life, I'm here to help
-          </p>
+    <section
+      ref={sectionRef}
+      className="min-h-screen relative overflow-hidden bg-black"
+      id="contact"
+    >
+      {/* Background Image - Same as Hero */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/herosection.jpg"
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+        {/* No dark overlay - keeping painting visible */}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 min-h-screen flex flex-col justify-between py-20 px-4 md:px-8 lg:px-16 bg-transparent">
+        <div className="max-w-7xl mx-auto w-full">
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[70vh]">
+            
+            {/* Left Side - Large Text */}
+            <div ref={leftTextRef} className="flex items-center justify-center lg:justify-start">
+              <div className="text-center lg:text-left">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-none tracking-tight">
+                  <div className="block">LET'S</div>
+                  <div className="block">CONNECT</div>
+                </h1>
+              </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div ref={rightContentRef} className="space-y-8">
+              {/* Heading */}
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide mb-8">
+                  I'M ALWAYS INTERESTED ABOUT
+                </h2>
+              </div>
+
+              {/* Interest Tags */}
+              <div ref={tagsRef} className="flex flex-wrap gap-4 justify-center">
+                {interests.map((interest, index) => (
+                  <button
+                    key={index}
+                    className="px-6 py-3 text-white text-sm font-medium uppercase tracking-wide border border-white rounded-full transition-all duration-300 hover:bg-white hover:bg-opacity-10"
+                    onMouseEnter={(e) => handleTagHover(e.currentTarget, true)}
+                    onMouseLeave={(e) => handleTagHover(e.currentTarget, false)}
+                  >
+                    {interest}
+                  </button>
+                ))}
+              </div>
+
+              {/* Call to Action */}
+              <div ref={ctaRef} className="text-center space-y-6">
+                <p className="text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
+                  ARE YOU MINDING A PROJECT?
+                </p>
+                <button
+                  className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wide rounded-full transition-all duration-300 hover:bg-gray-100"
+                  onMouseEnter={(e) => handleCtaHover(e.currentTarget, true)}
+                  onMouseLeave={(e) => handleCtaHover(e.currentTarget, false)}
+                >
+                  CONTACT ME
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <form className="w-full" onSubmit={handleSubmit}>
-          <div className="mb-5">
-            <label htmlFor="name" className="feild-label">
-              Full Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="field-input field-input-focus"
-              placeholder="John Doe"
-              autoComplete="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+
+        {/* Footer */}
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white border-opacity-20">
+            {/* Social Links */}
+            <div ref={socialRef} className="flex gap-6 mb-4 md:mb-0">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="text-white text-sm uppercase tracking-wide hover:text-gray-300 transition-colors duration-300"
+                >
+                  {social.name}
+                </a>
+              ))}
+            </div>
+
+            {/* Credits */}
+            <div className="text-white text-xs opacity-60">
+              v1 v2 credits
+            </div>
           </div>
-          <div className="mb-5">
-            <label htmlFor="email" className="feild-label">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="field-input field-input-focus"
-              placeholder="JohnDoe@email.com"
-              autoComplete="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="message" className="feild-label">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              type="text"
-              rows="4"
-              className="field-input field-input-focus"
-              placeholder="Share your thoughts..."
-              autoComplete="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
-          >
-            {!isLoading ? "Send" : "Sending..."}
-          </button>
-        </form>
+        </div>
       </div>
     </section>
   );
