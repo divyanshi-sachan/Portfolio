@@ -160,12 +160,12 @@ const WelcomeScreen = ({ onComplete }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: '#B8B5B0',
+        backgroundColor: '#cfcfd0',
       }}
     >
       {/* Animated Background */}
       <div ref={backgroundRef} className="absolute inset-0 opacity-100">
-        <div className="absolute inset-0 bg-[#B8B5B0]" />
+        <div className="absolute inset-0 bg-[#cfcfd0]" />
         <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-black/10" />
       </div>
 

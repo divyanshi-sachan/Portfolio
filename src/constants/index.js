@@ -280,3 +280,42 @@ export const reviews = [
     img: "https://robohash.org/eve",
   },
 ];
+
+export const caseStudies = [
+  {
+    id: "smart-notes",
+    title: "Smart Notes Summarizer",
+    focus: "Hybrid Retrieval-Augmented Generation",
+    problem:
+      "Lecturers needed fast, reliable summaries from long research PDFs to prep course material without manual skim reading.",
+    solution:
+      "Built a document pipeline using LangChain, OpenAI embeddings, and vector similarity search to surface relevant context before generation.",
+    impact: "Cut prep time by 65% and improved summary accuracy scores from 0.62 to 0.86 against human-written baselines.",
+    stack: ["Python", "LangChain", "Pinecone", "React"],
+    link: "https://github.com/yourusername/smart-notes",
+  },
+  {
+    id: "vision-lab",
+    title: "Vision Lab Classifier",
+    focus: "Computer Vision · Transfer Learning",
+    problem:
+      "Campus research lab required an automated way to classify microscopy images to prioritize samples for manual review.",
+    solution:
+      "Fine-tuned a ResNet50 backbone with contrastive augmentation, built a FastAPI inference service, and shipped a minimal dashboard for lab techs.",
+    impact: "Reached 92% F1-score on imbalanced classes and reduced manual triage workload by 40% week-over-week.",
+    stack: ["PyTorch", "FastAPI", "Docker", "Vite"],
+    link: "https://github.com/yourusername/vision-lab",
+  },
+  {
+    id: "mlops-playground",
+    title: "MLOps Playground",
+    focus: "Experiment Tracking · Deployment",
+    problem:
+      "Student ML teams lacked a unified workflow to compare experiments and deploy demos for hackathons.",
+    solution:
+      "Designed a modular template with MLflow tracking, automated evaluations, and a CI pipeline that pushes best models to a Vercel-hosted API.",
+    impact: "Enabled teams to iterate 3x faster and ship production-ready demos in under 48 hours.",
+    stack: ["MLflow", "scikit-learn", "GitHub Actions", "Vercel"],
+    link: "https://github.com/yourusername/mlops-playground",
+  },
+];

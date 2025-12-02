@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import { VerticalCutReveal } from "../components/ui/vertical-cut-reveal";
 import { myProjects } from "../constants";
 import ProjectShowcase from "../components/ProjectShowcase";
 
@@ -117,7 +118,20 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
                 viewport={{ once: true }}
               >
-                {project.title.toUpperCase()}
+                <VerticalCutReveal
+                  splitBy="words"
+                  staggerDuration={0.05}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20,
+                    delay: 0.4 + index * 0.2,
+                  }}
+                  autoStart={true}
+                >
+                  {project.title.toUpperCase()}
+                </VerticalCutReveal>
               </motion.h2>
               <motion.p 
                 className="body-large text-gray-600 uppercase tracking-wide"
@@ -166,7 +180,7 @@ const Projects = () => {
     <>
       <section
         ref={sectionRef}
-        className="section-padding bg-[#B8B5B0] text-black"
+        className="section-padding bg-[#cfcfd0] text-black"
         id="projects"
       >
         <div className="container-width">
@@ -207,7 +221,20 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                OUR BIG PROJECTS
+                <VerticalCutReveal
+                  splitBy="words"
+                  staggerDuration={0.1}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 190,
+                    damping: 22,
+                    delay: 0.6,
+                  }}
+                  autoStart={true}
+                >
+                  OUR BIG PROJECTS
+                </VerticalCutReveal>
               </motion.h1>
             </motion.div>
             <motion.div 

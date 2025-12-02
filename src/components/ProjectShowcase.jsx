@@ -27,7 +27,7 @@ const ProjectShowcase = ({ project, onClose }) => {
     <AnimatePresence>
       <motion.div
         ref={containerRef}
-        className="fixed inset-0 z-50 bg-[#B8B5B0] overflow-y-auto"
+        className="fixed inset-0 z-50 bg-[#cfcfd0] overflow-y-auto"
         onClick={handleBackdropClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

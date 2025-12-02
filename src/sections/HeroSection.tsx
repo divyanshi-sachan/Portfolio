@@ -1,10 +1,11 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { Globe, ChevronDown } from "lucide-react"
 import { ParallaxText } from "../components/ParallaxText"
 
 export default function HeroSection() {
   return (
-    <div className="h-screen bg-[#B8B5B0] relative overflow-hidden">
+    <div className="h-screen bg-[#cfcfd0] relative overflow-hidden hero-gradient-overlay">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-10 py-8">
         <div className="text-black text-sm font-medium">© Code by Divyanshi</div>
@@ -18,6 +19,9 @@ export default function HeroSection() {
           <a href="#contact" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
             Contact
           </a>
+          <Link to="/case-studies" className="text-black text-sm font-medium hover:opacity-80 transition-opacity">
+            Case Studies
+          </Link>
         </nav>
       </header>
 

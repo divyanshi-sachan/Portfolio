@@ -10,7 +10,7 @@ import {
   useState,
 } from "react"
 import { DynamicAnimationOptions, motion } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 interface TextProps {
   children: React.ReactNode

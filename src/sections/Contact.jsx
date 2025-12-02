@@ -26,7 +26,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-[#B8B5B0] text-black"
+      className="section-padding bg-[#cfcfd0] text-black"
       id="contact"
     >
       <div className="container-width">

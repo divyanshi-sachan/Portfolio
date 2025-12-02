@@ -31,7 +31,7 @@ const MovingTechStack = () => {
   }, [])
 
   return (
-    <div className="section-padding bg-[#B8B5B0] text-black">
+    <div className="section-padding bg-[#cfcfd0] text-black">
       <div className="container-width">
         {/* Header */}
         <motion.div
