@@ -3,7 +3,7 @@ import { experiences } from "../constants";
 
 const Experiences = () => {
   return (
-    <section className="section-padding bg-[#cfcfd0] text-black" id="experiences">
+    <section className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300" id="experiences">
       <div className="container-width">
         {/* Header */}
         <motion.div
@@ -23,7 +23,7 @@ const Experiences = () => {
             WORK EXPERIENCE
           </motion.h1>
           <motion.div
-            className="w-24 h-px bg-black mx-auto"
+            className="w-24 h-px bg-black dark:bg-white mx-auto"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -34,7 +34,7 @@ const Experiences = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-black/20 transform md:-translate-x-0.5" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-black/20 dark:bg-white/20 transform md:-translate-x-0.5" />
           
           {/* Timeline Items */}
           <div className="space-y-16">
@@ -55,7 +55,7 @@ const Experiences = () => {
               >
                 {/* Timeline Dot */}
                 <motion.div
-                  className="absolute left-6 md:left-1/2 w-4 h-4 bg-black rounded-full transform -translate-x-2 md:-translate-x-2 z-10"
+                  className="absolute left-6 md:left-1/2 w-4 h-4 bg-black dark:bg-white rounded-full transform -translate-x-2 md:-translate-x-2 z-10"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ 
@@ -77,10 +77,10 @@ const Experiences = () => {
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-black/20 hover:shadow-lg transition-all duration-300">
+                  <div className="bg-white/50 dark:bg-white backdrop-blur-sm rounded-2xl p-8 border border-black/20 dark:border-black/20 hover:shadow-lg transition-all duration-300">
                     {/* Date Badge */}
                     <motion.div
-                      className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-4"
+                      className="inline-block px-4 py-2 bg-black dark:bg-black text-white dark:text-white text-sm font-medium rounded-full mb-4"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
@@ -91,7 +91,7 @@ const Experiences = () => {
 
                     {/* Title */}
                     <motion.h3
-                      className="heading-3 mb-2"
+                      className="heading-3 mb-2 text-black dark:text-black"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
@@ -102,7 +102,7 @@ const Experiences = () => {
 
                     {/* Company */}
                     <motion.h4
-                      className="body-large text-gray-600 mb-6"
+                      className="body-large text-gray-600 dark:text-gray-700 mb-6"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 + index * 0.2 }}
@@ -122,12 +122,13 @@ const Experiences = () => {
                       {experience.contents.map((content, contentIndex) => (
                         <motion.p
                           key={contentIndex}
-                          className="body-text text-gray-700 leading-relaxed"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          className="body-text text-gray-700 dark:text-gray-800 leading-relaxed"
+                          initial={{ opacity: 0, y: 15 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           transition={{ 
                             duration: 0.5, 
-                            delay: 0.9 + index * 0.2 + contentIndex * 0.1 
+                            delay: 0.9 + index * 0.2 + contentIndex * 0.12,
+                            ease: "easeOut"
                           }}
                           viewport={{ once: true }}
                         >

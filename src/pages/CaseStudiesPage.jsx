@@ -2,14 +2,16 @@ import { Link } from "react-router-dom";
 import { VerticalCutReveal } from "../components/ui/vertical-cut-reveal";
 import CaseStudies from "../sections/CaseStudies";
 import Contact from "../sections/Contact";
+import ScrollProgress from "../components/ScrollProgress";
 
 const CaseStudiesPage = () => {
   return (
-    <div className="min-h-screen bg-[#cfcfd0] text-black">
-      <header className="section-padding border-b border-black/10">
+    <div className="min-h-screen bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300">
+      <ScrollProgress />
+      <header className="section-padding border-b border-black/10 dark:border-white/10">
         <div className="container-width flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-gray-600">Research Portfolio</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gray-600 dark:text-gray-400">Research Portfolio</p>
             <h1 className="heading-2 mt-2">
               <VerticalCutReveal
                 splitBy="words"
@@ -25,7 +27,7 @@ const CaseStudiesPage = () => {
                 Case Studies
               </VerticalCutReveal>
             </h1>
-            <p className="body-text text-gray-700 max-w-2xl mt-4">
+            <p className="body-text text-gray-700 dark:text-gray-300 max-w-2xl mt-4">
               Deep-dives into my AI/ML projects—covering hypotheses, datasets, modeling strategy, evaluation, and the impact they created.
             </p>
           </div>

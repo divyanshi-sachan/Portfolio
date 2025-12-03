@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ProgressiveImage from "./ProgressiveImage";
 
 const ProjectShowcase = ({ project, onClose }) => {
   const containerRef = useRef(null);
@@ -121,12 +122,12 @@ const ProjectShowcase = ({ project, onClose }) => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <div className="relative rounded-2xl overflow-hidden border border-black/20 shadow-lg">
-                <img
+                <ProgressiveImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-black/10 hover:bg-black/5 transition-all duration-300" />
+                <div className="absolute inset-0 bg-black/10 hover:bg-black/5 transition-all duration-300 pointer-events-none" />
               </div>
             </motion.div>
 

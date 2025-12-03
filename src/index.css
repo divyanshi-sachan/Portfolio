@@ -3,6 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* Tailwind v4: Configure dark mode to use .dark class instead of media query */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Hide default cursor globally - temporarily disabled for debugging */
 /* * {
   cursor: none !important;
@@ -79,11 +82,23 @@ a, button, input, textarea, select, [role="button"] {
   }
 }
 body {
-  background: #cfcfd0;
+  background: #cfcfd0 !important;
   font-family: "Funnel Display", sans-serif;
-  color: var(--color-text-primary);
+  color: #000000 !important;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+/* Explicitly ensure light mode when dark class is NOT present */
+html:not(.dark) body {
+  background: #cfcfd0 !important;
+  color: #000000 !important;
+}
+
+html.dark body {
+  background: #0a0a0a;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .c-space {
@@ -260,6 +275,15 @@ body {
   );
   pointer-events: none;
   z-index: 5;
+  transition: background 0.3s ease;
+}
+
+html.dark .hero-gradient-overlay::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0) 40%,
+    #0a0a0a 100%
+  );
 }
 
 /* Premium Glass Card Styles */
@@ -279,6 +303,10 @@ body {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.4), transparent);
   z-index: 1;
   pointer-events: none;
+}
+
+html.dark .glass-card::before {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
 }
 
 /* Fade Up Animation */
@@ -312,6 +340,21 @@ body {
 
 .polaroid-frame:hover {
   transform: rotate(-0.5deg) scale(1.02);
+  box-shadow: 
+    0 24px 72px rgba(0, 0, 0, 0.18),
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .polaroid-frame {
+  background: #ffffff;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .polaroid-frame:hover {
   box-shadow: 
     0 24px 72px rgba(0, 0, 0, 0.18),
     0 12px 32px rgba(0, 0, 0, 0.12),
@@ -368,6 +411,11 @@ body {
   text-align: center;
   transform: rotate(-0.5deg);
   z-index: 3;
+  transition: color 0.3s ease;
+}
+
+html.dark .polaroid-caption {
+  color: #666;
 }
 
 .polaroid-signature {
@@ -386,6 +434,12 @@ body {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   font-variant-ligatures: common-ligatures;
   writing-mode: horizontal-tb;
+  transition: color 0.3s ease;
+}
+
+html.dark .polaroid-signature {
+  color: #2a2a2a;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .polaroid-signature::before {

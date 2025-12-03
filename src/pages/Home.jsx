@@ -11,6 +11,7 @@ import MovingTechStack from "../components/MovingTechStack";
 import AnimatedCursor from "../components/AnimatedCursor";
 import WelcomeScreen from "../components/WelcomeScreen";
 import CaseStudies from "../sections/CaseStudies";
+import ScrollProgress from "../components/ScrollProgress";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +34,12 @@ const Home = () => {
 
   return (
     <div className="relative">
-      {!showWelcome && <AnimatedCursor />}
+      {!showWelcome && (
+        <>
+          <AnimatedCursor />
+          <ScrollProgress />
+        </>
+      )}
 
       <div ref={heroRef} className="relative z-10">
         <HeroSection />

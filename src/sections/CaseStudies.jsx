@@ -5,7 +5,7 @@ import { caseStudies } from "../constants";
 
 const CaseStudies = () => {
   return (
-    <section className="section-padding bg-[#cfcfd0] text-black" id="case-studies">
+    <section className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300" id="case-studies">
       <div className="container-width">
         <motion.div
           className="text-center mb-16 space-y-4"
@@ -14,7 +14,7 @@ const CaseStudies = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-[0.3em] text-sm text-gray-600">Case Studies</p>
+          <p className="uppercase tracking-[0.3em] text-sm text-gray-600 dark:text-gray-400">Case Studies</p>
           <h2 className="heading-2">
             <VerticalCutReveal
               splitBy="words"
@@ -31,7 +31,7 @@ const CaseStudies = () => {
               AI/ML projects with measurable impact
             </VerticalCutReveal>
           </h2>
-          <p className="body-text text-gray-700 max-w-2xl mx-auto">
+          <p className="body-text text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             From research tools to production-ready workflows, here’s how I apply machine learning to solve real problems
             as a student researcher and full-stack engineer.
           </p>

@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import MagneticButton from "../components/MagneticButton";
+import RippleButton from "../components/RippleButton";
 
 const Contact = () => {
   const sectionRef = useRef(null);
@@ -26,7 +28,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-[#cfcfd0] text-black"
+      className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300"
       id="contact"
     >
       <div className="container-width">
@@ -47,7 +49,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Heading */}
             <div className="text-center">
-              <h2 className="heading-3 text-gray-600 uppercase tracking-wide mb-8">
+              <h2 className="heading-3 text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-8">
                 I'M ALWAYS INTERESTED ABOUT
               </h2>
             </div>
@@ -55,25 +57,25 @@ const Contact = () => {
             {/* Interest Tags */}
             <div className="flex flex-wrap gap-4 justify-center">
               {interests.map((interest, index) => (
-                <button
+                <MagneticButton
                   key={index}
-                  className="px-6 py-3 text-black text-sm font-medium uppercase tracking-wide border border-black rounded-full transition-all duration-300 hover:bg-black hover:text-white"
+                  className="px-6 py-3 text-black dark:text-white text-sm font-medium uppercase tracking-wide border border-black dark:border-white rounded-full transition-all duration-300 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black"
                 >
                   {interest}
-                </button>
+                </MagneticButton>
               ))}
             </div>
 
             {/* Call to Action */}
             <div className="text-center space-y-6">
-              <p className="body-large text-gray-600 uppercase tracking-wide">
+              <p className="body-large text-gray-600 dark:text-gray-400 uppercase tracking-wide">
                 ARE YOU MINDING A PROJECT?
               </p>
-              <button
-                className="px-8 py-4 bg-black text-white font-medium text-lg uppercase tracking-wide rounded-full transition-all duration-300 hover:bg-gray-800"
+              <RippleButton
+                className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-medium text-lg uppercase tracking-wide rounded-full transition-all duration-300 hover:bg-gray-800 dark:hover:bg-gray-200 shadow-lg hover:shadow-xl"
               >
                 CONTACT ME
-              </button>
+              </RippleButton>
             </div>
           </div>
         </div>
@@ -87,7 +89,7 @@ const Contact = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="text-black text-sm uppercase tracking-wide hover:text-gray-600 transition-colors duration-300"
+                  className="text-black dark:text-white text-sm uppercase tracking-wide hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300"
                 >
                   {social.name}
                 </a>
@@ -95,7 +97,7 @@ const Contact = () => {
             </div>
 
             {/* Credits */}
-            <div className="text-black text-xs opacity-60">
+            <div className="text-black dark:text-white text-xs opacity-60">
               v1 v2 credits
             </div>
           </div>

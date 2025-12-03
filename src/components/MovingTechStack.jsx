@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { useCardTilt } from "../hooks/useCardTilt"
 
 const MovingTechStack = () => {
+  const leftCardTilt = useCardTilt(0.08);
+  const devCardTilt = useCardTilt(0.08);
+  const collabCardTilt = useCardTilt(0.08);
+
   const techIcons = [
     { name: "Git", icon: "🔶", color: "#F05032", x: 15, y: 20 },
     { name: "Vue.js", icon: "V", color: "#4FC08D", x: 25, y: 45 },
@@ -31,7 +36,7 @@ const MovingTechStack = () => {
   }, [])
 
   return (
-    <div className="section-padding bg-[#cfcfd0] text-black">
+    <div className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300">
       <div className="container-width">
         {/* Header */}
         <motion.div
@@ -41,8 +46,8 @@ const MovingTechStack = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-           <h2 className="heading-2 mb-8 text-gray-600">
-             Focusing on the <span className="text-black font-normal">Best</span>
+           <h2 className="heading-2 mb-8 text-gray-600 dark:text-gray-400">
+             Focusing on the <span className="text-black dark:text-white font-normal">Best</span>
            </h2>
         </motion.div>
 
@@ -50,12 +55,20 @@ const MovingTechStack = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Tech Icons */}
           <motion.div
-            className="bg-white/50 rounded-2xl p-8 space-y-8 relative overflow-hidden border border-black/20 transition-all duration-300 cursor-pointer group"
+            ref={leftCardTilt.ref}
+            onMouseMove={leftCardTilt.handleMouseMove}
+            onMouseLeave={leftCardTilt.handleMouseLeave}
+            style={{
+              ...leftCardTilt.style,
+              rotateX: leftCardTilt.rotateX,
+              rotateY: leftCardTilt.rotateY,
+            }}
+            className="bg-white/50 dark:bg-white rounded-2xl p-8 space-y-8 relative overflow-hidden border border-black/20 dark:border-black/20 transition-all duration-300 cursor-pointer group"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            style={{ minHeight: "500px" }}
+            style={{ minHeight: "500px", transformStyle: "preserve-3d", perspective: "1000px", rotateX: leftCardTilt.rotateX, rotateY: leftCardTilt.rotateY }}
           >
             {/* Tech Icons Grid */}
             <div className="grid grid-cols-4 gap-4">
@@ -78,9 +91,9 @@ const MovingTechStack = () => {
                   }}
                 >
                   <div
-                    className="w-16 h-16 rounded-lg flex items-center justify-center relative transition-all duration-300 group-hover:shadow-lg bg-white/80 border border-black/20"
+                    className="w-16 h-16 rounded-lg flex items-center justify-center relative transition-all duration-300 group-hover:shadow-lg bg-white/80 dark:bg-white/90 border border-black/20 dark:border-black/20"
                   >
-                    <span className="text-sm font-bold relative z-10 text-black">
+                    <span className="text-sm font-bold relative z-10 text-black dark:text-white">
                       {tech.icon}
                     </span>
                   </div>
@@ -91,9 +104,9 @@ const MovingTechStack = () => {
             {/* Title and Description */}
              <div className="mt-8">
                <h3 className="heading-3 mb-4">
-                 <span className="text-black italic">Multiple</span> <span className="text-gray-600">Tech Stack</span>
+                 <span className="text-black dark:text-black italic">Multiple</span> <span className="text-gray-600 dark:text-gray-600">Tech Stack</span>
                </h3>
-               <p className="body-text text-gray-700 leading-relaxed">
+               <p className="body-text text-gray-700 dark:text-gray-800 leading-relaxed">
                  I have worked with multiple technologies and frameworks to build scalable and efficient applications.
                </p>
              </div>
@@ -103,7 +116,15 @@ const MovingTechStack = () => {
           <div className="space-y-6">
             {/* Dev & Design Section */}
             <motion.div
-              className="bg-white/50 rounded-2xl p-8 space-y-6 border border-black/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+              ref={devCardTilt.ref}
+              onMouseMove={devCardTilt.handleMouseMove}
+              onMouseLeave={devCardTilt.handleMouseLeave}
+              style={{
+                ...devCardTilt.style,
+                rotateX: devCardTilt.rotateX,
+                rotateY: devCardTilt.rotateY,
+              }}
+              className="bg-white/50 dark:bg-white rounded-2xl p-8 space-y-6 border border-black/20 dark:border-black/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -112,24 +133,24 @@ const MovingTechStack = () => {
               
               {/* Simple Icons */}
               <div className="flex gap-4 mb-6">
-                <div className="w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center border border-black/20">
-                  <span className="text-black text-xl">💾</span>
+                <div className="w-14 h-14 bg-black/10 dark:bg-black/10 rounded-xl flex items-center justify-center border border-black/20 dark:border-black/20">
+                  <span className="text-black dark:text-black text-xl">💾</span>
                 </div>
-                <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
-                  <span className="text-white text-xl">🖥️</span>
+                <div className="w-14 h-14 bg-black dark:bg-black rounded-xl flex items-center justify-center">
+                  <span className="text-white dark:text-white text-xl">🖥️</span>
                 </div>
-                <div className="w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center border border-black/20">
-                  <span className="text-black text-xl">🎨</span>
+                <div className="w-14 h-14 bg-black/10 dark:bg-black/10 rounded-xl flex items-center justify-center border border-black/20 dark:border-black/20">
+                  <span className="text-black dark:text-black text-xl">🎨</span>
                 </div>
               </div>
 
               {/* Content */}
               <div>
                  <h3 className="heading-3 mb-4">
-                   <span className="text-gray-600">Dev & </span>
-                   <span className="text-black italic">Design</span>
+                   <span className="text-gray-600 dark:text-gray-600">Dev & </span>
+                   <span className="text-black dark:text-black italic">Design</span>
                  </h3>
-                <p className="body-text text-gray-700 leading-relaxed">
+                <p className="body-text text-gray-700 dark:text-gray-800 leading-relaxed">
                   Excels in both development and design to create a seamless and intuitive user experience.
                 </p>
               </div>
@@ -137,7 +158,15 @@ const MovingTechStack = () => {
 
             {/* Open to Collaborations Section */}
             <motion.div
-              className="bg-white/50 rounded-2xl p-8 space-y-6 border border-black/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+              ref={collabCardTilt.ref}
+              onMouseMove={collabCardTilt.handleMouseMove}
+              onMouseLeave={collabCardTilt.handleMouseLeave}
+              style={{
+                ...collabCardTilt.style,
+                rotateX: collabCardTilt.rotateX,
+                rotateY: collabCardTilt.rotateY,
+              }}
+              className="bg-white/50 dark:bg-white rounded-2xl p-8 space-y-6 border border-black/20 dark:border-black/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -161,10 +190,10 @@ const MovingTechStack = () => {
               {/* Content */}
               <div>
                  <h3 className="heading-3 mb-4">
-                   <span className="text-gray-600">Open to </span>
-                   <span className="text-black italic">Collaborations</span>
+                   <span className="text-gray-600 dark:text-gray-600">Open to </span>
+                   <span className="text-black dark:text-black italic">Collaborations</span>
                  </h3>
-                <p className="body-text text-gray-700 leading-relaxed">
+                <p className="body-text text-gray-700 dark:text-gray-800 leading-relaxed">
                   Whether a small minor project or your next big SaaS, I am always open to collaborations and new
                   projects.
                 </p>

@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { VerticalCutReveal } from "../components/ui/vertical-cut-reveal";
 import { myProjects } from "../constants";
 import ProjectShowcase from "../components/ProjectShowcase";
+import { useCardTilt } from "../hooks/useCardTilt";
+import AmbientGrid from "../components/AmbientGrid";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -58,6 +60,7 @@ const Projects = () => {
   };
 
   const ProjectCard = ({ project, index }) => {
+    const tilt = useCardTilt(0.1);
     // Temporarily disabled GSAP animations to isolate image display issue
     // const cardRef = useRef(null);
 
@@ -90,6 +93,14 @@ const Projects = () => {
 
     return (
       <motion.div
+        ref={tilt.ref}
+        onMouseMove={tilt.handleMouseMove}
+        onMouseLeave={tilt.handleMouseLeave}
+        style={{
+          ...tilt.style,
+          rotateX: tilt.rotateX,
+          rotateY: tilt.rotateY,
+        }}
         className="group cursor-pointer mb-20"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -134,10 +145,10 @@ const Projects = () => {
                 </VerticalCutReveal>
               </motion.h2>
               <motion.p 
-                className="body-large text-gray-600 uppercase tracking-wide"
+                className="body-large text-gray-600 dark:text-gray-400 uppercase tracking-wide"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.2, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 {project.tags.slice(0, 3).map(tag => tag.name).join(', ').toUpperCase()}
@@ -180,10 +191,11 @@ const Projects = () => {
     <>
       <section
         ref={sectionRef}
-        className="section-padding bg-[#cfcfd0] text-black"
+        className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 relative"
         id="projects"
       >
-        <div className="container-width">
+        <AmbientGrid />
+        <div className="container-width relative z-10">
           {/* Header */}
           <motion.div
             className="mb-20"
