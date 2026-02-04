@@ -379,13 +379,13 @@ export const BlogHeaderFeaturedPost01 = () => {
     const [sortBy, setSortBy] = useState(sortByOptions[0].id);
 
     return (
-        <div className="bg-[#cfcfd0] dark:bg-[#0a0a0a]">
-            <section className="bg-[#cfcfd0] dark:bg-[#0a0a0a] py-16 md:py-24">
+        <div className="bg-[#0a0a0a]">
+            <section className="bg-[#0a0a0a] py-16 md:py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="flex w-full max-w-3xl flex-col">
-                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 md:text-base">Our blog</span>
-                        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold text-black dark:text-white">Resources and insights</h2>
-                        <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 md:mt-6 md:text-xl">The latest industry news, interviews, technologies, and resources.</p>
+                        <span className="text-sm font-semibold text-gray-400 md:text-base">Our blog</span>
+                        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold text-white">Resources and insights</h2>
+                        <p className="mt-4 text-lg text-gray-300 md:mt-6 md:text-xl">The latest industry news, interviews, technologies, and resources.</p>
                     </div>
                 </div>
             </section>

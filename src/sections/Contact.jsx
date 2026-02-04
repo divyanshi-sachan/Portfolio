@@ -28,7 +28,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300"
+      className="section-padding bg-[#0a0a0a] text-white"
       id="contact"
     >
       <div className="container-width">
@@ -49,7 +49,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Heading */}
             <div className="text-center">
-              <h2 className="heading-3 text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-8">
+              <h2 className="heading-3 text-gray-400 uppercase tracking-wide mb-8">
                 I'M ALWAYS INTERESTED ABOUT
               </h2>
             </div>
@@ -59,7 +59,7 @@ const Contact = () => {
               {interests.map((interest, index) => (
                 <MagneticButton
                   key={index}
-                  className="px-6 py-3 text-black dark:text-white text-sm font-medium uppercase tracking-wide border border-black dark:border-white rounded-full transition-all duration-300 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black"
+                  className="px-6 py-3 text-white text-sm font-medium uppercase tracking-wide border border-white rounded-full transition-all duration-300 hover:bg-white hover:text-black"
                 >
                   {interest}
                 </MagneticButton>
@@ -68,11 +68,11 @@ const Contact = () => {
 
             {/* Call to Action */}
             <div className="text-center space-y-6">
-              <p className="body-large text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+              <p className="body-large text-gray-400 uppercase tracking-wide">
                 ARE YOU MINDING A PROJECT?
               </p>
               <RippleButton
-                className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-medium text-lg uppercase tracking-wide rounded-full transition-all duration-300 hover:bg-gray-800 dark:hover:bg-gray-200 shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-white text-black font-medium text-lg uppercase tracking-wide rounded-full transition-all duration-300 hover:bg-gray-200 shadow-lg hover:shadow-xl"
               >
                 CONTACT ME
               </RippleButton>
@@ -81,7 +81,7 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-black/20">
+        <div className="mt-20 pt-8 border-t border-white/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             {/* Social Links */}
             <div className="flex gap-6 mb-4 md:mb-0">
@@ -89,7 +89,7 @@ const Contact = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="text-black dark:text-white text-sm uppercase tracking-wide hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300"
+                  className="text-white text-sm uppercase tracking-wide hover:text-gray-400 transition-colors duration-300"
                 >
                   {social.name}
                 </a>
@@ -97,7 +97,7 @@ const Contact = () => {
             </div>
 
             {/* Credits */}
-            <div className="text-black dark:text-white text-xs opacity-60">
+            <div className="text-white text-xs opacity-60">
               v1 v2 credits
             </div>
           </div>

@@ -145,7 +145,7 @@ const Projects = () => {
                 </VerticalCutReveal>
               </motion.h2>
               <motion.p 
-                className="body-large text-gray-600 dark:text-gray-400 uppercase tracking-wide"
+                className="body-large text-gray-400 uppercase tracking-wide"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.2, ease: "easeOut" }}
@@ -191,7 +191,7 @@ const Projects = () => {
     <>
       <section
         ref={sectionRef}
-        className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 relative"
+        className="section-padding bg-[#0a0a0a] text-white relative"
         id="projects"
       >
         <AmbientGrid />

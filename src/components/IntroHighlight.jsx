@@ -9,7 +9,7 @@ const IntroHighlight = () => {
   const containerRef = useRef(null);
 
   return (
-    <section ref={containerRef} className="pt-20 pb-20 bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white overflow-hidden transition-colors duration-300 relative">
+    <section ref={containerRef} className="pt-20 pb-20 bg-[#0a0a0a] text-white overflow-hidden relative">
       <AmbientGrid />
       <div className="container-width relative z-10">
         {/* Top Section - Main Pitch */}
@@ -47,13 +47,13 @@ const IntroHighlight = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <p className="body-large text-gray-700 dark:text-gray-300 leading-relaxed max-w-md">
+            <p className="body-large text-gray-300 leading-relaxed max-w-md">
               The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
             </p>
 
             <MagneticButton
               as={motion.div}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/30 dark:border-white/30 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/50 dark:hover:border-white/50 transition-all duration-300 font-medium text-black dark:text-white"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 bg-white/5 hover:bg-white/10 hover:border-white/50 transition-all duration-300 font-medium text-white"
             >
               <Link to="/case-studies" className="flex items-center gap-2">
                 Explore Case Studies

@@ -116,7 +116,7 @@ const WelcomeScreen = ({ onComplete }) => {
   return (
     <motion.div 
       ref={containerRef}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
       style={{
         zIndex: 50,
         position: 'fixed',
@@ -124,13 +124,13 @@ const WelcomeScreen = ({ onComplete }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: '#cfcfd0',
+        backgroundColor: '#0a0a0a',
       }}
     >
-      {/* Animated Background */}
+      {/* Animated Background - dark */}
       <div ref={backgroundRef} className="absolute inset-0 opacity-100">
-        <div className="absolute inset-0 bg-[#cfcfd0]" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/5" />
       </div>
 
       {/* Interactive Particles */}
@@ -146,27 +146,27 @@ const WelcomeScreen = ({ onComplete }) => {
           whileHover={{ scale: 1.1, rotate: 360 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="w-20 h-20 mx-auto border-2 border-black/30 rounded-full flex items-center justify-center relative bg-black/10 backdrop-blur-sm">
-            <span className="text-black text-3xl font-bold relative z-10">P</span>
-            <div className="absolute inset-0 border-2 border-black/20 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
+          <div className="w-20 h-20 mx-auto border-2 border-white/30 rounded-full flex items-center justify-center relative bg-white/10 backdrop-blur-sm">
+            <span className="text-white text-3xl font-bold relative z-10">P</span>
+            <div className="absolute inset-0 border-2 border-white/20 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
           </div>
         </motion.div>
 
         {/* Welcome Text */}
         <div ref={welcomeTextRef} className="mb-6">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-black tracking-tight relative">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white tracking-tight relative">
             <span className="relative z-10">
               {currentText}
               <span className="animate-pulse">|</span>
             </span>
             {/* Glow effect */}
-            <span className="absolute inset-0 text-black opacity-20 blur-lg">Welcome to My Portfolio</span>
+            <span className="absolute inset-0 text-white opacity-20 blur-lg">Welcome to My Portfolio</span>
           </h1>
         </div>
 
         {/* Subtitle */}
         <div ref={subtitleRef} className="mb-12">
-          <p className="text-lg sm:text-xl md:text-2xl text-black/70 font-light tracking-tight">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/70 font-light tracking-tight">
             {currentSubtitle}
             <span className="animate-pulse">|</span>
           </p>
@@ -174,9 +174,9 @@ const WelcomeScreen = ({ onComplete }) => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-black/30 rounded-full animate-ping" />
-      <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-black/40 rounded-full animate-pulse" />
-      <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-black/20 rounded-full animate-bounce" />
+      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-ping" />
+      <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-white/40 rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/20 rounded-full animate-bounce" />
     </motion.div>
   );
 };

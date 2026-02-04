@@ -153,7 +153,7 @@ const About = () => {
   return (
     <section
       ref={containerRef}
-      className="pt-20 pb-20 px-4 md:px-8 lg:px-24 bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 relative"
+      className="pt-20 pb-20 px-4 md:px-8 lg:px-24 bg-[#0a0a0a] text-white relative"
       id="about"
     >
       <AmbientGrid />

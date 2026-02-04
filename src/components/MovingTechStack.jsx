@@ -36,7 +36,7 @@ const MovingTechStack = () => {
   }, [])
 
   return (
-    <div className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300">
+    <div className="section-padding bg-[#0a0a0a] text-white">
       <div className="container-width">
         {/* Header */}
         <motion.div

@@ -6,27 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
     <script>
-      // CRITICAL: Initialize theme BEFORE React loads - default to LIGHT mode
+      // Always use dark theme - set before React loads for no flash
       (function() {
-        // Force remove dark class immediately
         const html = document.documentElement;
-        html.classList.remove("dark");
-        html.classList.remove("light");
-        
-        // Check localStorage for saved preference
-        const savedTheme = localStorage.getItem("theme");
-        
-        // ONLY add dark class if explicitly saved as "dark"
-        // Otherwise, leave it empty (which means light mode in Tailwind)
-        if (savedTheme === "dark") {
-          html.classList.add("dark");
-        } else {
-          // Ensure light mode - explicitly remove dark and set light in localStorage
-          html.classList.remove("dark");
-          if (!savedTheme) {
-            localStorage.setItem("theme", "light");
-          }
-        }
+        html.classList.add("dark");
+        localStorage.setItem("theme", "dark");
       })();
     </script>
   </head>

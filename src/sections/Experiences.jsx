@@ -3,7 +3,7 @@ import { experiences } from "../constants";
 
 const Experiences = () => {
   return (
-    <section className="section-padding bg-[#cfcfd0] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300" id="experiences">
+    <section className="section-padding bg-[#0a0a0a] text-white" id="experiences">
       <div className="container-width">
         {/* Header */}
         <motion.div
