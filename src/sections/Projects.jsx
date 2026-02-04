@@ -155,28 +155,19 @@ const Projects = () => {
             </div>
           </motion.div>
 
-          {/* Right side - Image */}
+          {/* Right side - Image: B&W by default, original color on hover */}
           <motion.div 
             className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
           >
             <div className="project-image-container rounded-lg overflow-hidden">
-              <motion.img
+              <img
                 src={project.image}
                 alt={project.title}
-                className="project-image transition-transform duration-700 group-hover:scale-110"
-                onLoad={() => console.log('Project image loaded:', project.image)}
-                onError={() => console.log('Project image failed:', project.image)}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div 
-                className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-500"
-                whileHover={{ opacity: 0.2 }}
+                className="project-image w-full h-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
               />
             </div>
           </motion.div>
