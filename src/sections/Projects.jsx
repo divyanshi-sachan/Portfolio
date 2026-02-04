@@ -167,7 +167,7 @@ const Projects = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="project-image w-full h-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                className="project-image w-full h-full object-cover grayscale transition-[filter,transform] duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[filter,transform] group-hover:grayscale-0 group-hover:scale-[1.02]"
               />
             </div>
           </motion.div>
