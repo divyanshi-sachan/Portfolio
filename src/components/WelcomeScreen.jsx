@@ -12,7 +12,6 @@ const WelcomeScreen = ({ onComplete }) => {
   const welcomeTextRef = useRef(null);
   const subtitleRef = useRef(null);
   const backgroundRef = useRef(null);
-  const logoRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentText, setCurrentText] = useState("");
   const [currentSubtitle, setCurrentSubtitle] = useState("");
@@ -45,7 +44,7 @@ const WelcomeScreen = ({ onComplete }) => {
     });
 
     // Initial setup
-    gsap.set([welcomeTextRef.current, subtitleRef.current, logoRef.current], { 
+    gsap.set([welcomeTextRef.current, subtitleRef.current], { 
       opacity: 0, 
       y: 100,
       scale: 0.8
@@ -88,14 +87,6 @@ const WelcomeScreen = ({ onComplete }) => {
         duration: 1.2, 
         ease: "power3.out"
       }, "-=1")
-      // Logo entrance with bounce
-      .to(logoRef.current, { 
-        opacity: 1, 
-        y: 0,
-        scale: 1,
-        duration: 1, 
-        ease: "back.out(1.7)"
-      }, "-=0.8")
       // Subtitle entrance
       .to(subtitleRef.current, { 
         opacity: 1, 
@@ -139,19 +130,6 @@ const WelcomeScreen = ({ onComplete }) => {
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-8 max-w-4xl mx-auto">
-        {/* Logo */}
-        <motion.div 
-          ref={logoRef} 
-          className="mb-8"
-          whileHover={{ scale: 1.1, rotate: 360 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="w-20 h-20 mx-auto border-2 border-white/30 rounded-full flex items-center justify-center relative bg-white/10 backdrop-blur-sm">
-            <span className="text-white text-3xl font-bold relative z-10">P</span>
-            <div className="absolute inset-0 border-2 border-white/20 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
-          </div>
-        </motion.div>
-
         {/* Welcome Text */}
         <div ref={welcomeTextRef} className="mb-6">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white tracking-tight relative">
