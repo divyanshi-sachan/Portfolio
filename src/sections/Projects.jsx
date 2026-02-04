@@ -193,64 +193,43 @@ const Projects = () => {
         id="projects"
       >
         <div className="container-width relative z-10">
-          {/* Header */}
+          {/* Header - same style as Work Experience */}
           <motion.div
-            className="mb-20"
+            className="text-center mb-20 flex flex-col items-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <motion.div 
-              className="flex items-center mb-8"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+            <motion.h1
+              className="heading-2 mb-4 text-white w-full flex justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <motion.div 
-                className="w-8 h-8 mr-4"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
-                viewport={{ once: true }}
+              <span className="inline-block text-center">
+              <VerticalCutReveal
+                splitBy="words"
+                staggerDuration={0.1}
+                staggerFrom="first"
+                transition={{
+                  type: "spring",
+                  stiffness: 190,
+                  damping: 22,
+                  delay: 0.2,
+                }}
+                autoStart={true}
               >
-                <svg
-                  className="w-full h-full text-black"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </motion.div>
-              <motion.h1 
-                className="heading-2"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <VerticalCutReveal
-                  splitBy="words"
-                  staggerDuration={0.1}
-                  staggerFrom="first"
-                  transition={{
-                    type: "spring",
-                    stiffness: 190,
-                    damping: 22,
-                    delay: 0.6,
-                  }}
-                  autoStart={true}
-                >
-                  OUR BIG PROJECTS
-                </VerticalCutReveal>
-              </motion.h1>
-            </motion.div>
-            <motion.div 
-              className="w-full h-px bg-black/20"
+                MY BIG PROJECTS
+              </VerticalCutReveal>
+              </span>
+            </motion.h1>
+            <motion.div
+              className="w-24 h-px bg-white mx-auto"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             />
           </motion.div>

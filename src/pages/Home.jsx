@@ -51,9 +51,8 @@ const Home = () => {
             <About />
           </div>
 
-          <IntroHighlight />
-          <MovingTechStack />
           <Projects />
+          <IntroHighlight />
           <CaseStudies />
           <Experiences />
           <Contact />

@@ -46,8 +46,8 @@ const MovingTechStack = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-           <h2 className="heading-2 mb-8 text-gray-600 dark:text-gray-400">
-             Focusing on the <span className="text-black dark:text-white font-normal">Best</span>
+           <h2 className="heading-2 mb-8 text-white text-center">
+             Focusing on the <span className="font-normal">Best</span>
            </h2>
         </motion.div>
 

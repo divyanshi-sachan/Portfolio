@@ -36,9 +36,9 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[70vh]">
           
           {/* Left Side - Large Text */}
-          <div className="flex items-center justify-center lg:justify-start">
-            <div className="text-center lg:text-left">
-              <h1 className="heading-1">
+          <div className="flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="heading-2 text-white">
                 <div className="block">LET'S</div>
                 <div className="block">CONNECT</div>
               </h1>
@@ -49,7 +49,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Heading */}
             <div className="text-center">
-              <h2 className="heading-3 text-gray-400 uppercase tracking-wide mb-8">
+              <h2 className="heading-3 text-gray-400 uppercase tracking-wide mb-8 text-center">
                 I'M ALWAYS INTERESTED ABOUT
               </h2>
             </div>

@@ -14,7 +14,7 @@ const Experiences = () => {
           viewport={{ once: true }}
         >
           <motion.h1
-            className="heading-2 mb-4"
+            className="heading-2 mb-4 text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -23,7 +23,7 @@ const Experiences = () => {
             WORK EXPERIENCE
           </motion.h1>
           <motion.div
-            className="w-24 h-px bg-black dark:bg-white mx-auto"
+            className="w-24 h-px bg-white mx-auto"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
