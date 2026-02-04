@@ -59,6 +59,7 @@ const Projects = () => {
 
   const ProjectCard = ({ project, index }) => {
     const tilt = useCardTilt(0.1);
+    const [isHovered, setIsHovered] = useState(false);
     // Temporarily disabled GSAP animations to isolate image display issue
     // const cardRef = useRef(null);
 
@@ -93,7 +94,8 @@ const Projects = () => {
       <motion.div
         ref={tilt.ref}
         onMouseMove={tilt.handleMouseMove}
-        onMouseLeave={tilt.handleMouseLeave}
+        onMouseLeave={() => { tilt.handleMouseLeave(); setIsHovered(false); }}
+        onMouseEnter={() => setIsHovered(true)}
         style={{
           ...tilt.style,
           rotateX: tilt.rotateX,
@@ -155,7 +157,7 @@ const Projects = () => {
             </div>
           </motion.div>
 
-          {/* Right side - Image: B&W by default, original color on hover */}
+          {/* Right side - Image: B&W by default, original color on hover; smooth scale via Framer */}
           <motion.div 
             className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
             initial={{ opacity: 0, scale: 0.9 }}
@@ -163,13 +165,21 @@ const Projects = () => {
             transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="project-image-container rounded-lg overflow-hidden">
+            <motion.div
+              className="project-image-container rounded-lg overflow-hidden"
+              animate={{ scale: isHovered ? 1.02 : 1 }}
+              transition={{
+                type: "tween",
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                className="project-image w-full h-full object-cover grayscale transition-[filter,transform] duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[filter,transform] group-hover:grayscale-0 group-hover:scale-[1.02]"
+                className="project-image w-full h-full object-cover grayscale transition-[filter] duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:grayscale-0"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
