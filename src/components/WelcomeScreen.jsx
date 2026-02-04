@@ -12,12 +12,8 @@ const WelcomeScreen = ({ onComplete }) => {
   const welcomeTextRef = useRef(null);
   const subtitleRef = useRef(null);
   const backgroundRef = useRef(null);
-  const skipButtonRef = useRef(null);
   const logoRef = useRef(null);
-  const enterButtonRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isReady, setIsReady] = useState(false);
-  const [showSkipButton, setShowSkipButton] = useState(false);
   const [currentText, setCurrentText] = useState("");
   const [currentSubtitle, setCurrentSubtitle] = useState("");
 
@@ -32,7 +28,21 @@ const WelcomeScreen = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // Automatically slide up after animation completes
+        setTimeout(() => {
+          gsap.to(containerRef.current, {
+            y: "-100%",
+            duration: 1.2,
+            ease: "power3.inOut",
+            onComplete: () => {
+              onComplete();
+            },
+          });
+        }, 1000);
+      },
+    });
 
     // Initial setup
     gsap.set([welcomeTextRef.current, subtitleRef.current, logoRef.current], { 
@@ -40,19 +50,6 @@ const WelcomeScreen = ({ onComplete }) => {
       y: 100,
       scale: 0.8
     });
-    gsap.set(enterButtonRef.current, { opacity: 0, y: 50 });
-    gsap.set(skipButtonRef.current, { opacity: 0, y: 20 });
-
-    // Show skip button after 3 seconds
-    setTimeout(() => {
-      setShowSkipButton(true);
-      gsap.to(skipButtonRef.current, { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.8,
-        ease: "power2.out"
-      });
-    }, 3000);
 
     // Typewriter effect for main text
     const welcomeText = "Welcome to My Portfolio";
@@ -73,7 +70,6 @@ const WelcomeScreen = ({ onComplete }) => {
               j++;
             } else {
               clearInterval(subtitleInterval);
-              setIsReady(true);
             }
           }, 50);
         }, 500);
@@ -107,46 +103,14 @@ const WelcomeScreen = ({ onComplete }) => {
         scale: 1,
         duration: 1, 
         ease: "power2.out"
-      }, "-=0.6")
-      // Enter button entrance
-      .to(enterButtonRef.current, { 
-        opacity: 1, 
-        y: 0,
-        duration: 0.8, 
-        ease: "power2.out"
-      }, "-=0.4");
+      }, "-=0.6");
 
     return () => {
       tl.kill();
       clearInterval(typeInterval);
     };
-  }, []);
+  }, [onComplete]);
 
-  const handleEnter = () => {
-    const tl = gsap.timeline();
-    
-    tl
-      // Slide up animation with proper reveal
-      .to(containerRef.current, {
-        y: "-100%",
-        duration: 1.5,
-        ease: "power3.inOut",
-        onComplete: () => {
-          onComplete();
-        }
-      });
-  };
-
-  const handleSkip = () => {
-    gsap.to(containerRef.current, {
-      y: "-100%",
-      duration: 0.8,
-      ease: "power3.in",
-      onComplete: () => {
-        onComplete();
-      }
-    });
-  };
 
 
   return (
@@ -207,34 +171,7 @@ const WelcomeScreen = ({ onComplete }) => {
             <span className="animate-pulse">|</span>
           </p>
         </div>
-
-        {/* Enter Button */}
-        {isReady && (
-          <motion.button
-            ref={enterButtonRef}
-            onClick={handleEnter}
-            className="group relative px-8 py-4 bg-black text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Enter Portfolio</span>
-            <div className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-          </motion.button>
-        )}
       </div>
-
-      {/* Skip Button */}
-      {showSkipButton && (
-        <motion.button
-          ref={skipButtonRef}
-          onClick={handleSkip}
-          className="absolute top-6 right-6 px-4 py-2 bg-black/10 border border-black/30 rounded-full text-black text-sm font-medium hover:bg-black/20 transition-all duration-300 z-20 backdrop-blur-sm"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Skip
-        </motion.button>
-      )}
 
       {/* Decorative Elements */}
       <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-black/30 rounded-full animate-ping" />
