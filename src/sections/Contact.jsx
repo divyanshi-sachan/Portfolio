@@ -95,11 +95,6 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-
-            {/* Credits */}
-            <div className="text-white text-xs opacity-60">
-              v1 v2 credits
-            </div>
           </div>
         </div>
       </div>
