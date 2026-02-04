@@ -137,8 +137,6 @@
 // export default About;
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import AmbientGrid from "../components/AmbientGrid";
-
 const About = () => {
   const containerRef = useRef(null);
   const [mainTab, setMainTab] = useState("About");
@@ -156,7 +154,6 @@ const About = () => {
       className="pt-20 pb-20 px-4 md:px-8 lg:px-24 bg-[#0a0a0a] text-white relative"
       id="about"
     >
-      <AmbientGrid />
       <div className="container-width relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

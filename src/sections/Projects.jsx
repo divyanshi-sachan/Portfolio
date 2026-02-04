@@ -6,8 +6,6 @@ import { VerticalCutReveal } from "../components/ui/vertical-cut-reveal";
 import { myProjects } from "../constants";
 import ProjectShowcase from "../components/ProjectShowcase";
 import { useCardTilt } from "../hooks/useCardTilt";
-import AmbientGrid from "../components/AmbientGrid";
-
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -194,7 +192,6 @@ const Projects = () => {
         className="section-padding bg-[#0a0a0a] text-white relative"
         id="projects"
       >
-        <AmbientGrid />
         <div className="container-width relative z-10">
           {/* Header */}
           <motion.div

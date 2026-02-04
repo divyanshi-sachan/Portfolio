@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { VerticalCutReveal } from "./ui/vertical-cut-reveal";
 import MagneticButton from "./MagneticButton";
-import AmbientGrid from "./AmbientGrid";
-
 const IntroHighlight = () => {
   const containerRef = useRef(null);
 
   return (
     <section ref={containerRef} className="pt-20 pb-20 bg-[#0a0a0a] text-white overflow-hidden relative">
-      <AmbientGrid />
       <div className="container-width relative z-10">
         {/* Top Section - Main Pitch */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
