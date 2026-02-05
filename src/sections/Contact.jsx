@@ -6,16 +6,16 @@ const Contact = () => {
   const sectionRef = useRef(null);
 
   const interests = [
-    "UX/UI DESIGN",
-    "FULLSTACK DEVELOPER", 
-    "MOBILE DEVELOPMENT",
-    "DIGITAL CONSULTANT",
-    "NEW BUSINESSES",
-    "CALISTHENICS",
-    "COOKING",
+    "FULL STACK DEVELOPMENT",
+    "BUSINESS GROWTH", 
+    "SCALABLE APPLICATIONS",
+    "WEB APPLICATIONS",
     "STARTUPS",
-    "GAMING",
-    "AI SOLUTIONS"
+    "E-COMMERCE",
+    "SAAS PRODUCTS",
+    "API DEVELOPMENT",
+    "CLOUD SOLUTIONS",
+    "DIGITAL TRANSFORMATION"
   ];
 
   const socialLinks = [
@@ -50,7 +50,7 @@ const Contact = () => {
             {/* Heading */}
             <div className="text-center">
               <h2 className="heading-3 text-gray-400 uppercase tracking-wide mb-8 text-center">
-                I'M ALWAYS INTERESTED ABOUT
+                I HELP BUSINESSES WITH
               </h2>
             </div>
 

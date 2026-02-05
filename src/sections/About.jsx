@@ -233,9 +233,9 @@ const About = () => {
                     transition={{ duration: 0.3 }}
             >
               {[
-                "I craft immersive digital experiences that seamlessly blend cutting-edge technology with intuitive design.",
-                "Specializing in full-stack development, I build scalable applications using modern frameworks and cloud technologies.",
-                      "My passion lies in creating interactive experiences, smooth animations, and performance-optimized solutions."
+                "I help businesses grow by building powerful full-stack applications that solve real problems and drive measurable results.",
+                "As a freelance developer, I specialize in creating scalable web solutions using modern technologies—from frontend interfaces to backend systems and cloud infrastructure.",
+                      "My focus is on delivering end-to-end solutions that not only look great but perform exceptionally, helping your business scale and succeed."
               ].map((text, index) => (
                 <motion.p
                   key={index}
@@ -320,17 +320,17 @@ const About = () => {
                   >
                     <div className="space-y-4">
                       <div className="pb-4 border-b border-white/10 dark:border-black/20">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-black mb-1">Full Stack Developer</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-700 mb-2">Company Name • 2023 - Present</p>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-black mb-1">Full Stack Developer Intern</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-700 mb-2">Wonder Creative Studio • May 2025 – Aug 2025</p>
                         <p className="body-text text-gray-800 dark:text-gray-800">
-                          Building scalable web applications using React, Node.js, and cloud technologies.
+                          Built production-ready full-stack apps for real clients, including a Notion-like editor and AI contract management. Owned features end-to-end with scalable APIs and Redux.
                         </p>
                       </div>
                       <div className="pb-4 border-b border-white/10 dark:border-black/20">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-black mb-1">Software Engineer</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-700 mb-2">Previous Company • 2021 - 2023</p>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-black mb-1">Web Developer Intern</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-700 mb-2">HTS Tech Solutions • Jan 2025 – Apr 2025</p>
                         <p className="body-text text-gray-800 dark:text-gray-800">
-                          Developed and maintained full-stack applications with focus on performance and user experience.
+                          Architected production-grade user and admin dashboards with role-based workflows. Designed RESTful APIs and collaborated with senior engineers on stack decisions.
                         </p>
                       </div>
                     </div>

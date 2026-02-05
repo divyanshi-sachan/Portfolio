@@ -61,7 +61,7 @@ const WelcomeScreen = ({ onComplete }) => {
         clearInterval(typeInterval);
         // Start subtitle after main text is done
         setTimeout(() => {
-          const subtitleText = "Where creativity meets innovation";
+          const subtitleText = "Building full-stack solutions that help businesses grow";
           let j = 0;
           const subtitleInterval = setInterval(() => {
             if (j < subtitleText.length) {

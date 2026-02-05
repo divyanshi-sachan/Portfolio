@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 flex items-center justify-center">
         <img
           src="/assets/hero.jpg"
-          alt="Divyanshi - Freelance Designer & Developer"
+          alt="Divyanshi - Freelance Full Stack Developer"
           className="w-full h-full object-cover object-[center_200%] scale-110"
         />
       </div>
@@ -64,7 +64,7 @@ export default function HeroSection() {
       <div className="absolute right-10 top-1/2 transform -translate-y-1/2 z-20">
         <div className="text-white text-right">
           <div className="text-4xl font-light leading-tight">Freelance</div>
-          <div className="text-4xl font-light leading-tight">Designer & Developer</div>
+          <div className="text-4xl font-light leading-tight">Full Stack Developer</div>
         </div>
       </div>
 

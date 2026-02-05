@@ -184,6 +184,41 @@ export const myProjects = [
       },
     ],
   },
+  {
+    id: 6,
+    title: "Matrimonial Website",
+    description:
+      "A matrimonial website for connecting profiles and families with search, filters, and match recommendations.",
+    subDescription: [
+      "Built user profiles, search, and filters for preferences and location.",
+      "Implemented secure authentication and messaging for genuine connections.",
+    ],
+    href: "",
+    logo: "",
+    image: "/assets/project6.jpeg",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "Node.js",
+        path: "/assets/logos/microsoft.svg",
+      },
+      {
+        id: 3,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 4,
+        name: "MongoDB",
+        path: "/assets/logos/github.svg",
+      },
+    ],
+  },
 ];
 
 export const mySocials = [
@@ -206,27 +241,19 @@ export const mySocials = [
 
 export const experiences = [
   {
-    title: "Software Developer",
-    job: "Security & Defense Projects",
-    date: "2021-2023",
+    title: "Full Stack Developer Intern",
+    job: "Wonder Creative Studio",
+    date: "May 2025 – Aug 2025",
     contents: [
-      "Enhanced application security and developed new features, adhering to standards set by the Passive Defense Organization and National Cyberspace Center.",
-      "Designed and implemented intuitive map interfaces using MapsUI, enhancing user experience and enabling seamless interactive map integration.",
-      "Developed applications for industrial automation, leveraging C++ and the Fatek API for PLC communication.",
-      "Enhanced responsiveness and usability of applications using Windows Forms and WPF frameworks.",
-      "Executed XML to SVG conversions using X-DOM, ensuring dynamic and efficient data visualization.",
+      "Built production-ready full-stack apps for real clients, including a Notion-like editor and AI contract management. Owned features end-to-end with scalable APIs and Redux.",
     ],
   },
   {
-    title: "Back-End Developer",
-    job: "Car Manufacture",
-    date: "2023-2024",
+    title: "Web Developer Intern",
+    job: "HTS Tech Solutions",
+    date: "Jan 2025 – Apr 2025",
     contents: [
-      "Engineered systems for large-scale data ingestion and analysis, ensuring efficient data processing and storage.",
-      "Developed back-end systems enabling vehicle-to-cloud communication for telemetry, diagnostics, and remote control:",
-      "✅ Implemented secure APIs, following ISO 26262 automotive safety standards.",
-      "✅ Ensured data privacy for customers and partners through industry-compliant protocols.",
-      "✅ Delivered remote features like over-the-air updates, real-time tracking, and remote start capabilities.",
+      "Architected production-grade user and admin dashboards with role-based workflows. Designed RESTful APIs and collaborated with senior engineers on stack decisions.",
     ],
   },
 ];

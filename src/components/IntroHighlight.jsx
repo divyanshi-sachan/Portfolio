@@ -31,7 +31,7 @@ const IntroHighlight = () => {
                 }}
                 autoStart={true}
               >
-                Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge.
+                Helping businesses grow with powerful full-stack solutions. Building scalable applications that drive real results and transform digital experiences.
               </VerticalCutReveal>
             </h1>
           </motion.div>
@@ -45,7 +45,7 @@ const IntroHighlight = () => {
             viewport={{ once: true, amount: 0.4 }}
           >
             <p className="body-large text-gray-300 leading-relaxed max-w-md">
-              The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
+              As a freelance full-stack developer, I partner with businesses to build custom web applications that scale, perform, and deliver measurable growth.
             </p>
 
             <MagneticButton
