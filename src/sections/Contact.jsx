@@ -1,14 +1,22 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import MagneticButton from "../components/MagneticButton";
 import RippleButton from "../components/RippleButton";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const sectionRef = useRef(null);
   const formDropdownRef = useRef(null);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState(null); // "success" | "error" | null
 
   useEffect(() => {
     if (!showContactForm) return;
@@ -21,13 +29,43 @@ const Contact = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showContactForm]);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (!showContactForm) setSendStatus(null);
+  }, [showContactForm]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Optional: integrate with EmailJS or your backend here
-    console.log({ email, message });
-    setEmail("");
-    setMessage("");
-    setShowContactForm(false);
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      setSendStatus("error");
+      return;
+    }
+    setSending(true);
+    setSendStatus(null);
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: name.trim() || "Portfolio visitor",
+          reply_to: email,
+          message,
+        },
+        PUBLIC_KEY
+      );
+      setSendStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setTimeout(() => {
+        setShowContactForm(false);
+        setSendStatus(null);
+      }, 1500);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setSendStatus("error");
+    } finally {
+      setSending(false);
+    }
   };
 
   const interests = [
@@ -131,6 +169,31 @@ const Contact = () => {
                         </button>
                       </div>
                       <div className="space-y-4">
+                        {sendStatus === "success" && (
+                          <p className="text-sm text-green-400 bg-green-400/10 rounded-xl px-4 py-2">
+                            Message sent. I&apos;ll get back to you soon.
+                          </p>
+                        )}
+                        {sendStatus === "error" && (
+                          <p className="text-sm text-red-400 bg-red-400/10 rounded-xl px-4 py-2">
+                            {SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY
+                              ? "Something went wrong. Please try again."
+                              : "Email is not configured. Add EmailJS env variables."}
+                          </p>
+                        )}
+                        <div>
+                          <label htmlFor="contact-name" className="block text-sm font-medium text-gray-300 uppercase tracking-wide mb-2">
+                            Your name
+                          </label>
+                          <input
+                            id="contact-name"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Jane Doe"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                          />
+                        </div>
                         <div>
                           <label htmlFor="contact-email" className="block text-sm font-medium text-gray-300 uppercase tracking-wide mb-2">
                             Your email
@@ -142,7 +205,8 @@ const Contact = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="you@example.com"
                             required
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                            disabled={sending}
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all disabled:opacity-60"
                           />
                         </div>
                         <div>
@@ -156,14 +220,16 @@ const Contact = () => {
                             placeholder="Tell me about your project..."
                             required
                             rows={4}
-                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all resize-none"
+                            disabled={sending}
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all resize-none disabled:opacity-60"
                           />
                         </div>
                         <button
                           type="submit"
-                          className="w-full px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300"
+                          disabled={sending}
+                          className="w-full px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                         >
-                          Send
+                          {sending ? "Sending..." : "Send"}
                         </button>
                       </div>
                     </form>
