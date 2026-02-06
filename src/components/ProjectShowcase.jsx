@@ -218,29 +218,41 @@ const ProjectShowcase = ({ project, onClose }) => {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
+                  {/* Demo Button */}
                   <div className="space-y-4">
-                    <motion.button
-                      className="w-full px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      View Live Demo
-                    </motion.button>
-                    
-                    <motion.button
-                      className="w-full px-6 py-3 bg-white/10 border border-white/20 text-white font-medium rounded-full hover:bg-white/20 transition-all duration-300"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.9 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      View Source Code
-                    </motion.button>
+                    {project.demoInProgress ? (
+                      <motion.span
+                        className="flex w-full items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-gray-400 font-medium bg-white/5 cursor-default"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                      >
+                        In progress
+                      </motion.span>
+                    ) : project.href ? (
+                      <motion.a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex w-full items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        View Live Demo
+                      </motion.a>
+                    ) : (
+                      <motion.span
+                        className="flex w-full items-center justify-center px-6 py-3 rounded-full border border-white/20 text-gray-400 font-medium bg-white/5 cursor-default"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                      >
+                        Demo coming soon
+                      </motion.span>
+                    )}
                   </div>
 
                   {/* Related Projects */}

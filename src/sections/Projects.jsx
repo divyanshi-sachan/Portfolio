@@ -1,16 +1,16 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { VerticalCutReveal } from "../components/ui/vertical-cut-reveal";
 import { myProjects } from "../constants";
-import ProjectShowcase from "../components/ProjectShowcase";
 import { useCardTilt } from "../hooks/useCardTilt";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const projectsRef = useRef(null);
 
@@ -50,11 +50,7 @@ const Projects = () => {
 
 
   const handleProjectClick = (project) => {
-    setSelectedProject(project);
-  };
-
-  const closeShowcase = () => {
-    setSelectedProject(null);
+    navigate(`/projects/${project.id}`);
   };
 
   const ProjectCard = ({ project, index }) => {
@@ -243,14 +239,6 @@ const Projects = () => {
           </div>
         </div>
       </section>
-
-      {/* Project Showcase */}
-      {selectedProject && (
-        <ProjectShowcase 
-          project={selectedProject} 
-          onClose={closeShowcase} 
-        />
-      )}
     </>
   );
 };

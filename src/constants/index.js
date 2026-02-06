@@ -1,38 +1,38 @@
 export const myProjects = [
   {
     id: 1,
-    title: "ScrapeFlow",
+    title: "FlowScrape",
     description:
-      "Facilitates purchases from international websites like Amazon and eBay, allowing customers to shop from these sites and have products delivered domestically.",
+      "A web scraping and automation platform where you build visual workflows in a drag-and-drop editor—launch browser, navigate, click, extract text, run AI extraction, or send data via webhooks—then run or schedule them with a credit-based billing model.",
     subDescription: [
-      "Built a scalable application with ASP.NET Core MVC, integrating global platforms like Amazon for domestic delivery.",
-      "Implemented secure authentication and database management using ASP.NET Core Identity and Entity Framework Core.",
-      "Designed a responsive frontend with Tailwind CSS, enhancing user experience.",
-      "Added payment systems, localization, and product filtering for functionality improvements.",
+      "Visual workflow editor with React Flow: add nodes from a task menu, connect inputs and outputs, and configure each step (URLs, selectors, credentials, AI prompts).",
+      "Phase-based execution engine: workflows compile into ordered phases; credits are deducted per phase with optional cron scheduling for recurring runs.",
+      "Draft vs published workflows, encrypted credential storage, and a dashboard for runs, logs, and credit usage over time.",
+      "Built with Next.js 14, React Flow (XYFlow), Puppeteer, Clerk auth, Prisma, and optional Gemini for AI extraction tasks.",
     ],
-    href: "",
+    href: "https://cerulean-bavarois-fa689f.netlify.app/",
     logo: "",
     image: "/assets/project1.png",
     tags: [
       {
         id: 1,
-        name: "C#",
-        path: "/assets/logos/csharp.svg",
+        name: "Next.js",
+        path: "/assets/logos/vitejs.svg",
       },
       {
         id: 2,
-        name: ".Net",
-        path: "/assets/logos/dotnet.svg",
+        name: "React",
+        path: "/assets/logos/react.svg",
       },
       {
         id: 3,
-        name: "Ef Core",
-        path: "/assets/logos/efcore.png",
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
       },
       {
         id: 4,
-        name: "TailwindCSS",
-        path: "/assets/logos/tailwindcss.svg",
+        name: "Prisma",
+        path: "/assets/logos/sqlite.svg",
       },
     ],
   },
@@ -48,6 +48,7 @@ export const myProjects = [
       "Integrated machine learning models for document classification and content understanding.",
     ],
     href: "",
+    demoInProgress: true,
     logo: "",
     image: "/assets/project2.png",
     tags: [
@@ -75,38 +76,39 @@ export const myProjects = [
   },
   {
     id: 3,
-    title: "Fuzzie Production",
+    title: "Fuzzie",
     description:
-      "A modern, interactive web application built with Blazor WebAssembly and .NET Core.",
+      "A workflow automation platform that helps businesses connect Google Drive, Discord, Notion, and Slack in one place—so teams automate repetitive tasks, cut manual work, and focus on what drives growth.",
     subDescription: [
-      "Developed a fully interactive Single Page Application (SPA) using Blazor WebAssembly.",
-      "Implemented API interactions using .NET Core for a robust backend.",
-      "Designed responsive UI components with Tailwind CSS for an enhanced UX.",
-      "Integrated SQLite for efficient client-side database storage.",
+      "Visual drag-and-drop workflow editor (React Flow) so teams build automations without code—e.g. trigger on Drive changes, then notify via Discord, update Notion, or post to Slack.",
+      "Multi-service integrations with secure auth (Clerk), subscription tiers (Stripe), and a credit system so businesses scale usage and billing predictably.",
+      "Modern dashboard with dark mode, Framer Motion animations, and real-time webhooks so workflows feel responsive and reliable for daily use.",
+      "Built with Next.js 14, TypeScript, Prisma, and Radix UI—designed to onboard fast and run reliably for small teams and growing companies.",
     ],
     href: "",
+    demoInProgress: true,
     logo: "",
     image: "/assets/project3.png",
     tags: [
       {
         id: 1,
-        name: "Blazor",
-        path: "/assets/logos/blazor.svg",
+        name: "Next.js",
+        path: "/assets/logos/vitejs.svg",
       },
       {
         id: 2,
-        name: ".NET Core",
-        path: "/assets/logos/dotnetcore.svg",
+        name: "React",
+        path: "/assets/logos/react.svg",
       },
       {
         id: 3,
-        name: "SQLite",
-        path: "/assets/logos/sqlite.svg",
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
       },
       {
         id: 4,
-        name: "TailwindCSS",
-        path: "/assets/logos/tailwindcss.svg",
+        name: "Stripe",
+        path: "/assets/logos/stripe.svg",
       },
     ],
   },
@@ -121,7 +123,7 @@ export const myProjects = [
       "Implemented natural language processing for content optimization and SEO enhancement.",
       "Created a user-friendly dashboard for content creators to manage and schedule repurposed content.",
     ],
-    href: "",
+    href: "https://content-gilt-mu.vercel.app/",
     logo: "",
     image: "/assets/project4.png",
     tags: [
@@ -158,7 +160,7 @@ export const myProjects = [
       "Created an immersive 3D product showcase using Three.js for enhanced user engagement.",
       "Optimized for mobile-first design with advanced CSS animations and responsive layouts.",
     ],
-    href: "",
+    href: "https://landing-page-delta-six-60.vercel.app/",
     logo: "",
     image: "/assets/project5.png",
     tags: [
@@ -193,7 +195,7 @@ export const myProjects = [
       "Built user profiles, search, and filters for preferences and location.",
       "Implemented secure authentication and messaging for genuine connections.",
     ],
-    href: "",
+    href: "https://prime-group-pi.vercel.app/",
     logo: "",
     image: "/assets/project6.jpeg",
     tags: [
@@ -216,6 +218,42 @@ export const myProjects = [
         id: 4,
         name: "MongoDB",
         path: "/assets/logos/github.svg",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Chanelweb",
+    description:
+      "A luxury, Chanel-inspired marketing site that helps brands tell their story through full-screen video, scroll-driven reveals, and editorial-style sections—so campaigns feel immersive and drive stronger engagement.",
+    subDescription: [
+      "Scroll-linked storytelling: hero revealed via expanding circular clip, sections pinned and content sliding in from sides so every scroll moment supports the narrative and keeps users engaged.",
+      "Full-viewport sections with Lenis smooth scrolling and GSAP ScrollTrigger—video play/pause and scale tied to scroll position for a polished, high-end feel that elevates brand perception.",
+      "Built as a static single-page site (HTML, CSS, vanilla JS) with no framework or build step—fast to ship and easy to host, ideal for campaign microsites and luxury brand touchpoints.",
+    ],
+    href: "https://divyanshi-sachan.github.io/E-Commerce/",
+    logo: "",
+    image: "/assets/project7.jpeg",
+    tags: [
+      {
+        id: 1,
+        name: "HTML5",
+        path: "/assets/logos/html5.svg",
+      },
+      {
+        id: 2,
+        name: "CSS3",
+        path: "/assets/logos/css3.svg",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/logos/javascript.svg",
+      },
+      {
+        id: 4,
+        name: "GSAP",
+        path: "/assets/logos/git.svg",
       },
     ],
   },
@@ -310,39 +348,42 @@ export const reviews = [
 
 export const caseStudies = [
   {
-    id: "smart-notes",
-    title: "Smart Notes Summarizer",
-    focus: "Hybrid Retrieval-Augmented Generation",
+    id: "intrusion-detection",
+    title: "Machine Learning–Based Intrusion Detection System",
+    focus: "Cybersecurity · Real-Time ML · Enterprise Traffic",
     problem:
-      "Lecturers needed fast, reliable summaries from long research PDFs to prep course material without manual skim reading.",
+      "Enterprises need to detect malicious network activity in real time—distinguishing normal vs anomalous behavior and classifying attack types (DoS, brute force, infiltration, botnet)—while keeping false positives low.",
     solution:
-      "Built a document pipeline using LangChain, OpenAI embeddings, and vector similarity search to surface relevant context before generation.",
-    impact: "Cut prep time by 65% and improved summary accuracy scores from 0.62 to 0.86 against human-written baselines.",
-    stack: ["Python", "LangChain", "Pinecone", "React"],
-    link: "https://github.com/yourusername/smart-notes",
+      "Designed and implemented an IDS using the CSE-CIC-IDS2018 dataset. Built a pipeline with data preprocessing (feature scaling, imbalance handling, noise reduction), multiple ML models (Logistic Regression, Random Forest, XGBoost, SVM), and evaluation via precision, recall, F1-score, and confusion matrices. Added a real-time detection pipeline and a security dashboard for attack frequency, traffic anomalies, and severity levels.",
+    impact:
+      "Mimics production-level cybersecurity systems; directly applicable to healthcare and fintech platforms handling sensitive data. Demonstrates end-to-end skills in ML, cybersecurity, and system design.",
+    stack: ["Python", "scikit-learn", "XGBoost", "React", "Flask", "Pandas"],
+    link: "https://github.com/divyanshi-sachan/Intrusion-Detection-System",
   },
   {
-    id: "vision-lab",
-    title: "Vision Lab Classifier",
-    focus: "Computer Vision · Transfer Learning",
+    id: "electricity-consumption",
+    title: "Electricity Consumption Analytics & Forecasting",
+    focus: "Data Mining · Time-Series · Infrastructure Planning",
     problem:
-      "Campus research lab required an automated way to classify microscopy images to prioritize samples for manual review.",
+      "Utilities and governments need to understand demand patterns across regions and sectors, forecast future consumption (5–10 years), and identify peak loads and supply–demand gaps for smart grid and infrastructure decisions.",
     solution:
-      "Fine-tuned a ResNet50 backbone with contrastive augmentation, built a FastAPI inference service, and shipped a minimal dashboard for lab techs.",
-    impact: "Reached 92% F1-score on imbalanced classes and reduced manual triage workload by 40% week-over-week.",
-    stack: ["PyTorch", "FastAPI", "Docker", "Vite"],
-    link: "https://github.com/yourusername/vision-lab",
+      "Built a data-driven platform using U.S. EIA electricity data. Applied descriptive analytics (trends, seasonality, regional comparison), time-series forecasting (ARIMA, Prophet, LSTM), and an interactive heatmap dashboard for regional demand, temporal spikes, and sector-wise consumption. Compared models using RMSE and MAE.",
+    impact:
+      "Solves a real government and utility-level problem; supports smart grid planning, renewable integration, and infrastructure investment. Showcases data mining, ML, forecasting, and visualization.",
+    stack: ["Python", "pandas", "scikit-learn", "XGBoost", "Prophet", "Plotly"],
+    link: "https://github.com/divyanshi-sachan/Electricity-Consumption",
   },
   {
-    id: "mlops-playground",
-    title: "MLOps Playground",
-    focus: "Experiment Tracking · Deployment",
+    id: "truemeds",
+    title: "TrueMeds — Counterfeit Medicine Detection",
+    focus: "Computer Vision · Transfer Learning · Microservices",
     problem:
-      "Student ML teams lacked a unified workflow to compare experiments and deploy demos for hackathons.",
+      "Pharmaceutical quality control, supply chain verification, and consumer protection require reliable, real-time classification of medicine images as authentic or counterfeit.",
     solution:
-      "Designed a modular template with MLflow tracking, automated evaluations, and a CI pipeline that pushes best models to a Vercel-hosted API.",
-    impact: "Enabled teams to iterate 3x faster and ship production-ready demos in under 48 hours.",
-    stack: ["MLflow", "scikit-learn", "GitHub Actions", "Vercel"],
-    link: "https://github.com/yourusername/mlops-playground",
+      "Built an end-to-end system using transfer learning with ResNet-18 for binary image classification. Deployed a microservices stack: FastAPI ML service for inference, Express.js backend for auth and ML proxying, and a React (Vite) frontend for uploads and results. Added JWT auth, Docker support, and structured logging.",
+    impact:
+      "Supports pharmaceutical quality control, supply chain verification, and regulatory compliance. Demonstrates full-stack ML deployment with React, Express, FastAPI, and Docker.",
+    stack: ["PyTorch", "ResNet-18", "FastAPI", "Express.js", "React", "MongoDB", "Docker"],
+    link: "https://github.com/divyanshi-sachan/TrueMeds",
   },
 ];
