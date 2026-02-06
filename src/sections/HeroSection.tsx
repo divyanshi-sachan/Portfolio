@@ -42,7 +42,7 @@ export default function HeroSection() {
           className="text-white text-4xl sm:text-5xl md:text-[8rem] lg:text-[12rem] xl:text-[14rem] font-light leading-none tracking-tight select-none whitespace-nowrap"
           wrapperClassName=""
         >
-          <span className="px-2 sm:px-4">Divyanshi-Sachan</span>
+          <span className="px-2 sm:px-4">Divyanshi Sachan</span>
         </ParallaxText>
       </div>
 
